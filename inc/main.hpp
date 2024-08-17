@@ -1,0 +1,19 @@
+#ifndef MAIN_H
+#define MAIN_H
+#include "OpencvHead.hpp"
+#include "cpm.hpp"
+#include "infer.hpp"
+#include "yolo.hpp"
+#include "detect.hpp"
+#include "uart.hpp"
+#include "camera.hpp"
+#include "pthread.hpp"
+#include <pthread.h>
+#include <k4a/k4a.hpp>
+#include <k4arecord/record.h>
+#include <k4arecord/playback.h>
+#include <unistd.h>
+#include <cstdlib>
+#include <semaphore.h>
+#include <iostream>
+#endif
