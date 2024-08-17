@@ -102,5 +102,12 @@
         "semaphore": "cpp",
         "stop_token": "cpp",
         "format": "cpp"
-    }
+    },
+    "doxdocgen.generic.authorEmail": "3416181310@qq.com",
+    "doxdocgen.file.fileTemplate": "@file {name}",
+    "doxdocgen.generic.authorName": "ddxy",
+    "doxdocgen.generic.commandSuggestionAddPrefix": true,
+    "doxdocgen.generic.useGitUserEmail": true,
+    "doxdocgen.generic.useGitUserName": true
+    
 }
