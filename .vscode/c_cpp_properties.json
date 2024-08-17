@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/src/**",
+                "/root/.kiwi/lib/opencv4.2/include/**",
+                "/root/.kiwi/lib/cuda10.2/include/**",
+                "/root/.kiwi/lib/tensorRT8016cuda102cudnn8/include/**",
+                "/root/.kiwi/lib/cudnn822cuda102/include/**"
+            ],
+            "defines": ["__CUDACC__", "HAS_PYTHON"],
+            "compilerPath": "/usr/bin/gcc", 
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/src/**",
+                    "/root/.kiwi/lib/opencv4.2/include/**",
+                    "/root/.kiwi/lib/cuda10.2/include/**",
+                    "/root/.kiwi/lib/tensorRT8016cuda102cudnn8/include/**",
+                    "/root/.kiwi/lib/cudnn822cuda102/include/**"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
