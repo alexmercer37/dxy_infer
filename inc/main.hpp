@@ -43,6 +43,6 @@
 #include <signal.h>
 #include <sys/prctl.h>
 
-#define test_tcp ;
+#define test_tcp
 
 #endif

@@ -11,16 +11,8 @@
 
 #include "../inc/uart.hpp"
 
-/**
- * libtty_setcustombaudrate - set baud rate of tty device
- * @fd: device handle
- * @speed: baud rate to set
- *
- * The function return 0 if success, or -1 if fail.
- */
 int ret;
-// u_char buf[100]={0};
-int libtty_setcustombaudrate(int fd, int baudrate)
+int UART::libtty_setcustombaudrate(int fd, int baudrate)
 {
     struct termios2 tio;
 
@@ -32,18 +24,7 @@ int libtty_setcustombaudrate(int fd, int baudrate)
     return 0;
 }
 
-/**
- * libtty_setopt - config tty device
- * @fd: device handle
- * @speed: baud rate to set
- * @databits: data bits to set
- * @stopbits: stop bits to set
- * @parity: parity to set
- * @hardflow: hardflow to set
- *
- * The function return 0 if success, or -1 if fail.
- */
-int libtty_setopt(int fd, int speed, int databits, int stopbits, char parity, char hardflow)
+int UART::libtty_setopt(int fd, int speed, int databits, int stopbits, char parity, char hardflow)
 {
     struct termios newtio;
     struct termios oldtio;
@@ -160,13 +141,7 @@ int libtty_setopt(int fd, int speed, int databits, int stopbits, char parity, ch
     return 0;
 }
 
-/**
- * libtty_open - open tty device
- * @devname: the device name to open
- *
- * In this demo device is opened blocked, you could modify it at will.
- */
-int libtty_open(const char *devname)
+int UART::libtty_open(const char *devname)
 {
     int fd = open(devname, O_RDWR | O_NOCTTY | O_NDELAY);
     int flags = 0;
@@ -196,30 +171,11 @@ int libtty_open(const char *devname)
     return fd;
 }
 
-/**
- * libtty_sendbreak - uart send break
- * @fd: file descriptor of tty device
- *
- * Description:
- *  tcsendbreak() transmits a continuous stream of zero-valued bits for a specific duration, if the terminal
- *  is using asynchronous serial data transmission. If duration is zero, it transmits zero-valued bits for
- *  at least 0.25 seconds, and not more that 0.5 seconds. If duration is not zero, it sends zero-valued bits
- *  for some implementation-defined length of time.
- *
- *  If the terminal is not using asynchronous serial data transmission, tcsendbreak() returns without taking
- *  any action.
- */
-int libtty_sendbreak(int fd)
+int UART::libtty_sendbreak(int fd)
 {
     return tcsendbreak(fd, 0);
 }
 
-/**
- * libtty_write - write data to uart
- * @fd: file descriptor of tty device
- *
- * The function return the number of bytes written if success, others if fail.
- */
 // static int libtty_write(int fd, float *data) //
 // {
 //     int nwrite;                       // count
@@ -237,7 +193,7 @@ int libtty_sendbreak(int fd)
 //     return nwrite;
 // }
 
-int libtty_write(int fd, __s16 *data, __u8 buff)
+int UART::Libtty_Write(int fd, float *data, __u8 buff)
 {
     int nwrite;           // count
     u_char buf[64] = {0}; // start
@@ -258,7 +214,30 @@ int libtty_write(int fd, __s16 *data, __u8 buff)
 
     return nwrite;
 }
-int Libtty_Write(int fd, float (*data)[3], __u8 buff, int num)
+
+#ifndef different_type
+int UART::Libtty_Write(int fd, __s16 *data, __u8 buff)
+{
+    int nwrite;           // count
+    u_char buf[64] = {0}; // start
+    buf[0] = 0xff;
+    buf[1] = 0xfe;
+    buf[2] = buff;
+    memset(buf + 3, 0x00, 61);                // refrash the buf but [0],[1]
+    memcpy(buf + 3, data, 3 * sizeof(__s16)); // you can put the 0xfffe and 0xa0d in you data too
+                                              // cout<<*data<<*(data+1)<<*(data+2)<<endl;
+    for (int i = 3; i < 9; i++)
+        buf[9] += buf[i];
+    *(buf + 10) = 0xaa;
+    *(buf + 11) = 0xdd;
+
+    nwrite = write(fd, buf, 12);
+    // sleep(0.01);
+    printf("wrote %d bytesa lready.\n", nwrite);
+
+    return nwrite;
+}
+int UART::Libtty_Write(int fd, float (*data)[3], __u8 buff, int num)
 {
     int nwrite;
     int index = 0;
@@ -291,7 +270,7 @@ int Libtty_Write(int fd, float (*data)[3], __u8 buff, int num)
     return nwrite;
 }
 
-int libtty_Write(int fd, uint8_t *data, __u8 buff)
+int UART::Libtty_Write(int fd, uint8_t *data, __u8 buff)
 {
     int nwrite;           // count
     u_char buf[64] = {0}; // start
@@ -334,10 +313,12 @@ int libtty_Write(int fd, uint8_t *data, __u8 buff)
 
     return nwrite;
 }
+#endif
 
-void uart_init()
+void UART::uart_init()
 {
-    signal(SIGINT, sig_handler);
+    UART uart;
+    signal(SIGINT, uart.sig_handler);
 
     fd = libtty_open(device);
     // printf("%d", fd);
@@ -380,7 +361,7 @@ void uart_init()
 //   return nwrite;
 // }
 
-static void sig_handler(int signo)
+void UART::sig_handler(int signo)
 {
     printf("capture sign no:%d\n", signo);
     if (fp != NULL)
@@ -393,7 +374,7 @@ static void sig_handler(int signo)
 }
 
 //   if ((width[i] * height[i]) > (width[i + 1] * height[i + 1]))
-void libtty_receive(int fd, int &data)
+void UART::libtty_receive(int fd, int &data)
 {
 
     int RxLen = 0;

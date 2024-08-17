@@ -17,6 +17,7 @@ using namespace std;
 using namespace k4a;
 using namespace cv;
 int fd;
+UART uart;
 
 void Camera::init_kinect(k4a::device &device, k4a::capture &capture, k4a::transformation &k4aTransformation, k4a::calibration &k4aCalibration)
 {
@@ -71,15 +72,15 @@ void Camera::init_kinect(k4a::device &device, k4a::capture &capture, k4a::transf
 void Camera::getAngel(k4a::device &device)
 {
   __u8 buff = 0x01;
-  __s16 angle[3] = {0};
+  float angle[3] = {0};
 
   k4a_imu_sample_t *imu_sample = new k4a_imu_sample_t;
   device.get_imu_sample(imu_sample, std::chrono::milliseconds(1000));
 
-  if (device.get_imu_sample(imu_sample, std::chrono::milliseconds(100)))
-    cout << "imu success" << endl;
-  else
-    cout << "imu error" << endl;
+  // if (device.get_imu_sample(imu_sample, std::chrono::milliseconds(100)))
+  //   cout << "imu success" << endl;
+  // else
+  //   cout << "imu error" << endl;
 
   if (imu_sample != NULL)
   {
@@ -87,7 +88,7 @@ void Camera::getAngel(k4a::device &device)
     angle[0] = {-atan(imu_sample->acc_sample.xyz.x / pow(pow(imu_sample->acc_sample.xyz.z, 2) + pow(imu_sample->acc_sample.xyz.y, 2), 0.5)) * 180 / PI};
     cout << angle[0] << endl;
     sleep(0.01);
-    libtty_write(fd, angle, buff);
+    uart.Libtty_Write(fd, angle, buff);
   }
 }
 

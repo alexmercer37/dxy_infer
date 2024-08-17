@@ -28,74 +28,53 @@
 #undef termios
 #include <termios.h>
 
+#define different_type
 static const char *device = "/dev/myttyUSB";
 static int speed = B115200;
 static int hardflow = 0;
 static int verbose = 0;
 static FILE *fp;
 
-extern int fd;  // put in main is ok too (30 2 32)
-extern int ret; //
-extern char c;  // for test in the while
+extern int fd;
+extern int ret;
+extern char c;
 
-/**
- * libtty_setcustombaudrate - set baud rate of tty device
- * @fd: device handle
- * @speed: baud rate to set
- *
- * The function return 0 if success, or -1 if fail.
- */
-int libtty_setcustombaudrate(int fd, int baudrate);
+class UART
+{
+public:
+    UART(int *d = nullptr) : data(d) {}
+    int *data;
+    int libtty_setcustombaudrate(int fd, int baudrate);
+    int libtty_setopt(int fd, int speed, int databits, int stopbits, char parity, char hardflow);
+    int libtty_open(const char *devname);
+    int libtty_sendbreak(int fd);
+    static void sig_handler(int signo);
+    void uart_init();
+    void libtty_receive(int fd, int &data);
+    int Libtty_Write(int fd, float *data, __u8 buff);
 
-/**
- * libtty_setopt - config tty device
- * @fd: device handle
- * @speed: baud rate to set
- * @databits: data bits to set
- * @stopbits: stop bits to set
- * @parity: parity to set
- * @hardflow: hardflow to set
- *
- * The function return 0 if success, or -1 if fail.
- */
-int libtty_setopt(int fd, int speed, int databits, int stopbits, char parity, char hardflow);
+#ifndef different_type
+    int Libtty_Write(int fd, float (*data)[3], __u8 buff, int num);
+    int Libtty_Write(int fd, __s16 *data, __u8 buff);
+    int Libtty_Write(int fd, uint8_t *data, __u8 buff);
+#endif
 
-/**
- * libtty_open - open tty device
- * @devname: the device name to open
- *
- * In this demo device is opened blocked, you could modify it at will.
- */
-int libtty_open(const char *devname);
+private:
+    int fd;
+    int baudrate;
+    int databits;
+    int speed;
+    int stopbits;
+    char parity;
+    char hardflow;
+    const char *devname;
+    int signo;
+    __u8 buff;
+    int num;
 
-/**
- * libtty_sendbreak - uart send break
- * @fd: file descriptor of tty device
- *
- * Description:
- *  tcsendbreak() transmits a continuous stream of zero-valued bits for a specific duration, if the terminal
- *  is using asynchronous serial data transmission. If duration is zero, it transmits zero-valued bits for
- *  at least 0.25 seconds, and not more that 0.5 seconds. If duration is not zero, it sends zero-valued bits
- *  for some implementation-defined length of time.
- *
- *  If the terminal is not using asynchronous serial data transmission, tcsendbreak() returns without taking
- *  any action.
- */
-int libtty_sendbreak(int fd);
-
-/**
- * libtty_write - write data to uart
- * @fd: file descriptor of tty device
- *
- * The function return the number of bytes written if success, others if fail.
- */
-int libtty_write(int fd, __s16 *data, __u8 buff);
-int libtty_Write(int fd, uint8_t *data, __u8 buff);
-
-// static int libtty_write(int fd); // use char to test
-
-static void sig_handler(int signo);
-
-void uart_init();
-void libtty_receive(int fd, int &data);
-int Libtty_Write(int fd, float (*data)[3], __u8 buff, int num);
+#ifndef different_type
+    float (*data)[3];
+    uint8_t *data;
+    __s16 *data;
+#endif
+};
