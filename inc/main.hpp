@@ -1,5 +1,17 @@
+/**
+ * @file main.hpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #ifndef MAIN_H
 #define MAIN_H
+
 #include "OpencvHead.hpp"
 #include "cpm.hpp"
 #include "infer.hpp"
@@ -16,4 +28,9 @@
 #include <cstdlib>
 #include <semaphore.h>
 #include <iostream>
+#include <initializer_list>
+#include <memory>
+#include <string>
+#include <vector>
+
 #endif

@@ -1,14 +1,12 @@
-/*
- * @Author: Tommy0929
- * @Date: 2024-01-25 20:01:23
- * @LastEditors: Tommy0929 tommy07210728@163.com
- * @FilePath: /final/inc/uart.h
- * WHUROBOCON_SAVED!!!
- */
-/*
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License.
+/**
+ * @file uart.hpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
  */
 #pragma once
 

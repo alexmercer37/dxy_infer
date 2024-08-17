@@ -1,5 +1,17 @@
+/**
+ * @file pthread.hpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #ifndef PTHREAD_H
 #define PTHREAD_H
+
 #include "main.hpp"
 #include <k4a/k4a.hpp>
 #include <k4arecord/record.h>

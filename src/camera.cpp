@@ -1,10 +1,14 @@
-/*
- * @Author: ddxy
- * @Date: 2023-10-10 10:43:39
- * @LastEditors: Tommy0929 tommy07210728@163.com
- * @FilePath: /final/src/camera.cpp
- * WHUROBOCON_SAVED!!!
- */ \
+/**
+ * @file camera.cpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #include "../inc/camera.hpp"
 
 #define PI 3.1415926535
@@ -72,9 +76,10 @@ void Camera::getAngel(k4a::device &device)
   k4a_imu_sample_t *imu_sample = new k4a_imu_sample_t;
   device.get_imu_sample(imu_sample, std::chrono::milliseconds(1000));
 
-  // if (device.get_imu_sample(imu_sample, std::chrono::milliseconds(100)))
-  // cout << "imu success" << endl;
-  // else cout << "imu error" << endl;
+  if (device.get_imu_sample(imu_sample, std::chrono::milliseconds(100)))
+    cout << "imu success" << endl;
+  else
+    cout << "imu error" << endl;
 
   if (imu_sample != NULL)
   {
@@ -104,7 +109,6 @@ cv::Mat *Camera::getpicture(k4a::device &device, k4a::capture &capture, cv::Mat 
 
 cv::Mat *Camera::getdepth(k4a::device &device, k4a::capture &capture, cv::Mat &cv_depth, k4a::transformation &k4aTransformation)
 {
-  // device.get_capture(&capture, std::chrono::milliseconds(100));
 
   k4a_depth = capture.get_depth_image();
 

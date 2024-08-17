@@ -1,6 +1,19 @@
+/**
+ * @file detect.hpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #ifndef __INFER_H__
 #define __INFER_H__
+
 #include "main.hpp"
+
 static const char *cocolabels[] = {"person", "bicycle", "car",
                                    "motorcycle", "airplane", "bus",
                                    "train", "truck", "boat",

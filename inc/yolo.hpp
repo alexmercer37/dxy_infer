@@ -1,10 +1,18 @@
+/**
+ * @file yolo.hpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #ifndef __YOLO_HPP__
 #define __YOLO_HPP__
 
-#include <future>
-#include <memory>
-#include <string>
-#include <vector>
+#include "main.hpp"
 
 namespace yolo
 {

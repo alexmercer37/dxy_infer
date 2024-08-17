@@ -1,3 +1,14 @@
+/**
+ * @file detect.cpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #include "../inc/detect.hpp"
 
 yolo::Image cvimg(const cv::Mat &image)
@@ -87,7 +98,6 @@ void Detect::batch_inference()
 
 std::shared_ptr<cv::Mat> Detect::single_inference(std::shared_ptr<cv::Mat> image, std::shared_ptr<yolo::Infer> yolo)
 {
-    // auto objs = yolo->forward(cvimg(image));
     auto objs = yolo->forward(yolo::Image((*image).data, (*image).cols, (*image).rows));
 
     for (auto &obj : objs)

@@ -1,3 +1,14 @@
+/**
+ * @file pthread.cpp
+ * @author alexmercer37 (3450141407@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-17
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #include "../inc/main.hpp"
 #include "../inc/pthread.hpp"
 
@@ -45,7 +56,7 @@ void *pthread::k4aUpdate(void *argc)
 
         if (matBuff->empty())
         {
-            std::cout << "error" << std::endl;
+            std::cout << "Error: matBuff is empty!" << std::endl;
         }
 
         rgb_ptr->release();
@@ -60,7 +71,10 @@ void *pthread::create_infer(void *argc)
 {
     auto yolo = yolo::load("/home/ddxy/下载/dxy_infer-master/yolov8n.transd.engine", yolo::Type::V8);
     if (yolo == nullptr)
+    {
+        std::cout << "Loading yolo failed" << std::endl;
         return nullptr;
+    }
 
     std::shared_ptr<cv::Mat> output;
     detect->setYolo(yolo);
@@ -83,11 +97,15 @@ void *pthread::create_infer(void *argc)
     }
     pthread_exit(NULL);
 }
+
 void *pthread::create_infer_seg(void *argc)
 {
     auto yolo = yolo::load("/home/ddxy/下载/dxy_infer-master/yolov8n-seg.b1.transd.engine", yolo::Type::V8Seg);
     if (yolo == nullptr)
+    {
+        std::cout << "Loading yolo_seg failed" << std::endl;
         return nullptr;
+    }
 
     detect->setYolo(yolo);
     cv::Mat *output;
@@ -106,6 +124,8 @@ void *pthread::create_infer_seg(void *argc)
                 cv::imshow("seg", *output);
                 cv::waitKey(1);
             }
+            else
+                std::cout << "Error: output is empty!" << std::endl;
         }
 
         usleep(100);
