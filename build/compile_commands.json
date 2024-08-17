@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/home/ddxy/Downloads/dxy_infer-master/build",
+  "command": "/usr/bin/g++ -I/home/ddxy/Downloads/dxy_infer-master/. -I/home/ddxy/Downloads/dxy_infer-master/src -I/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include -I/usr/include/python3.12 -I/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/home/ddxy/Downloads/dxy_infer-master/inc -isystem /usr/local/include/opencv4  -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17 -o CMakeFiles/pro.dir/src/camera.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/camera.cpp",
+  "file": "/home/ddxy/Downloads/dxy_infer-master/src/camera.cpp",
+  "output": "CMakeFiles/pro.dir/src/camera.cpp.o"
+},
+{
+  "directory": "/home/ddxy/Downloads/dxy_infer-master/build",
+  "command": "/usr/bin/g++ -I/home/ddxy/Downloads/dxy_infer-master/. -I/home/ddxy/Downloads/dxy_infer-master/src -I/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include -I/usr/include/python3.12 -I/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/home/ddxy/Downloads/dxy_infer-master/inc -isystem /usr/local/include/opencv4  -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17 -o CMakeFiles/pro.dir/src/detect.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/detect.cpp",
+  "file": "/home/ddxy/Downloads/dxy_infer-master/src/detect.cpp",
+  "output": "CMakeFiles/pro.dir/src/detect.cpp.o"
+},
+{
+  "directory": "/home/ddxy/Downloads/dxy_infer-master/build",
+  "command": "/usr/bin/g++ -I/home/ddxy/Downloads/dxy_infer-master/. -I/home/ddxy/Downloads/dxy_infer-master/src -I/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include -I/usr/include/python3.12 -I/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/home/ddxy/Downloads/dxy_infer-master/inc -isystem /usr/local/include/opencv4  -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17 -o CMakeFiles/pro.dir/src/main.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/main.cpp",
+  "file": "/home/ddxy/Downloads/dxy_infer-master/src/main.cpp",
+  "output": "CMakeFiles/pro.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/ddxy/Downloads/dxy_infer-master/build",
+  "command": "/usr/bin/g++ -I/home/ddxy/Downloads/dxy_infer-master/. -I/home/ddxy/Downloads/dxy_infer-master/src -I/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include -I/usr/include/python3.12 -I/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/home/ddxy/Downloads/dxy_infer-master/inc -isystem /usr/local/include/opencv4  -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17 -o CMakeFiles/pro.dir/src/pthread.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/pthread.cpp",
+  "file": "/home/ddxy/Downloads/dxy_infer-master/src/pthread.cpp",
+  "output": "CMakeFiles/pro.dir/src/pthread.cpp.o"
+},
+{
+  "directory": "/home/ddxy/Downloads/dxy_infer-master/build",
+  "command": "/usr/bin/g++ -I/home/ddxy/Downloads/dxy_infer-master/. -I/home/ddxy/Downloads/dxy_infer-master/src -I/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include -I/usr/include/python3.12 -I/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/home/ddxy/Downloads/dxy_infer-master/inc -isystem /usr/local/include/opencv4  -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17 -o CMakeFiles/pro.dir/src/queue.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/queue.cpp",
+  "file": "/home/ddxy/Downloads/dxy_infer-master/src/queue.cpp",
+  "output": "CMakeFiles/pro.dir/src/queue.cpp.o"
+},
+{
+  "directory": "/home/ddxy/Downloads/dxy_infer-master/build",
+  "command": "/usr/bin/g++ -I/home/ddxy/Downloads/dxy_infer-master/. -I/home/ddxy/Downloads/dxy_infer-master/src -I/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include -I/usr/include/python3.12 -I/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/home/ddxy/Downloads/dxy_infer-master/inc -isystem /usr/local/include/opencv4  -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17 -o CMakeFiles/pro.dir/src/tcp.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/tcp.cpp",
+  "file": "/home/ddxy/Downloads/dxy_infer-master/src/tcp.cpp",
+  "output": "CMakeFiles/pro.dir/src/tcp.cpp.o"
+},
+{
+  "directory": "/home/ddxy/Downloads/dxy_infer-master/build",
+  "command": "/usr/bin/g++ -I/home/ddxy/Downloads/dxy_infer-master/. -I/home/ddxy/Downloads/dxy_infer-master/src -I/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include -I/usr/include/python3.12 -I/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/home/ddxy/Downloads/dxy_infer-master/inc -isystem /usr/local/include/opencv4  -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17 -o CMakeFiles/pro.dir/src/uart.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/uart.cpp",
+  "file": "/home/ddxy/Downloads/dxy_infer-master/src/uart.cpp",
+  "output": "CMakeFiles/pro.dir/src/uart.cpp.o"
+}
+]

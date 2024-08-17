@@ -16,6 +16,7 @@
 #include <k4a/k4a.hpp>
 #include <k4arecord/record.h>
 #include <k4arecord/playback.h>
+#define python_test_succeed
 
 inline std::shared_ptr<cv::Mat> matBuff;
 inline std::shared_ptr<cv::Mat> depthBuff;
@@ -29,5 +30,6 @@ public:
     static void *create_infer(void *argc);
     static void *create_infer_seg(void *argc);
     static void *usb_camera_infer(void *argc);
+    static void *detect_python(void *argc);
 };
 #endif

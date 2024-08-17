@@ -11,6 +11,8 @@
 
 #include "../inc/main.hpp"
 #include "../inc/pthread.hpp"
+#include <python3.12/Python.h>
+// #include <numpy/arrayobject.h>
 
 Camera *camera = new Camera;
 Detect *detect = new Detect;
@@ -169,3 +171,69 @@ void *pthread::usb_camera_infer(void *argc)
     }
     pthread_exit(NULL);
 }
+
+#ifndef python_test_succeed
+
+void *pthread::detect_python(void *argc)
+{
+    Py_Initialize();
+    _import_array();
+
+    PyRun_SimpleString("import sys");
+    PyRun_SimpleString("import os");
+    PyRun_SimpleString("sys.path.append(\'/home/dxy/Downloads/yolov5-6.0_two_labels\')");
+    PyRun_SimpleString("sys.path.append(\'.\')");
+    PyRun_SimpleString("import cv2");
+    PyRun_SimpleString("import numpy");
+    PyRun_SimpleString("import torch");
+    PyRun_SimpleString("import time");
+    PyRun_SimpleString("import serial");
+
+    PyObject *m_PyModule = PyImport_ImportModule("detect_ball");
+    PyObject *m_PyDict = PyModule_GetDict(m_PyModule);
+    PyObject *load_model = PyDict_GetItemString(m_PyDict, "load_model");
+    PyObject *model = PyObject_CallObject(load_model, NULL);
+
+    while (1)
+    {
+        if (load_model != NULL)
+        {
+            pthread_mutex_lock(&buff_mutex);
+            int r = (*matBuff).rows;
+            int c = (*matBuff).cols;
+            int chnl = (*matBuff).channels();
+            int nElem = r * c * chnl;
+
+            uchar *m = new uchar[nElem];
+
+            std::memcpy(m, (*matBuff).data, nElem * sizeof(uchar));
+
+            npy_intp mdim[] = {r, c, chnl};
+
+            PyObject *mat = (PyObject *)PyArray_SimpleNewFromData(chnl, mdim, NPY_UINT8, (void *)m);
+            pthread_mutex_unlock(&buff_mutex);
+
+            PyObject *detect_fun = PyDict_GetItemString(m_PyDict, "detect");
+            PyObject *detect_args = PyTuple_Pack(2, model, mat);
+            PyObject *result = PyObject_CallObject(detect_fun, detect_args);
+
+            // if (PyList_Check(result))
+            // {
+            //     float SizeOfList = PyList_Size(result);
+            //     for (int i = 0; i < SizeOfList; i++)
+            //     {
+            //         PyObject *ListItem = PyList_GetItem(result, i);
+            //         cout << ListItem << endl;
+            //         Py_DECREF(ListItem);
+            //     }
+            // }
+
+            Py_XDECREF(mat);
+            Py_XDECREF(result);
+            Py_XDECREF(detect_args);
+
+            delete[] m;
+        }
+    }
+}
+#endif

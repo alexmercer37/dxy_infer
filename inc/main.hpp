@@ -20,6 +20,7 @@
 #include "uart.hpp"
 #include "camera.hpp"
 #include "pthread.hpp"
+#include "tcp.hpp"
 #include <pthread.h>
 #include <k4a/k4a.hpp>
 #include <k4arecord/record.h>
@@ -32,5 +33,16 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <signal.h>
+#include <sys/prctl.h>
+
+#define test_tcp ;
 
 #endif
