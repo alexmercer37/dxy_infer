@@ -44,5 +44,6 @@
 #include <sys/prctl.h>
 
 #define test_tcp
+#define test_uart
 
 #endif

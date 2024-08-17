@@ -27,6 +27,45 @@ int main()
   pthread_create(&threads[2], NULL, pthread::create_infer_seg, NULL);
   pthread_create(&threads[3], NULL, pthread::usb_camera_infer, NULL);
 
+#ifndef test_uart
+
+  tcflush(fd, TCIOFLUSH);
+  int receive_data;
+  UART uart;
+  while (1)
+  {
+    uart.uart_init();
+    sleep(1);
+    uart.libtty_receive(fd, receive_data);
+
+    cout << receive_data << endl;
+
+    if (receive_data == 1)
+    {
+      pthread_create(&threads[0], NULL, pthread::k4aUpdate, NULL);
+      pthread_create(&threads[1], NULL, pthread::create_infer, NULL);
+      pthread_create(&threads[2], NULL, pthread::create_infer_seg, NULL);
+      pthread_create(&threads[3], NULL, pthread::usb_camera_infer, NULL);
+
+      receive_data = 0;
+
+      while (1)
+        usleep(100);
+    }
+    else if (receive_data == 2)
+    {
+      pthread_create(&threads[0], NULL, pthread::k4aUpdate, NULL);
+      pthread_create(&threads[1], NULL, pthread::create_infer, NULL);
+      pthread_create(&threads[2], NULL, pthread::create_infer_seg, NULL);
+      pthread_create(&threads[3], NULL, pthread::usb_camera_infer, NULL);
+
+      receive_data = 0;
+      while (1)
+        usleep(100);
+    }
+  }
+#endif
+
 #ifndef test_tcp
   pthread_create(&threads[4], NULL, TCP::TCP_Manage::tcp_recv, NULL);
   pthread_create(&threads[4], NULL, TCP::TCP_Manage::tcp_send, NULL);

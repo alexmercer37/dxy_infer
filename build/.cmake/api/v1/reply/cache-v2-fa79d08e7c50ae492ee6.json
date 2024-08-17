@@ -139,10 +139,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "/usr/bin/g++"
 		},
 		{
@@ -267,10 +267,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "/usr/bin/gcc"
 		},
 		{
@@ -1926,18 +1926,6 @@
 			"value" : "[/usr/local][v4.5.1()]"
 		},
 		{
-			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Python3",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Details about finding Python3"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "[/home/ddxy/anaconda3/bin/python3][/home/ddxy/anaconda3/include/python3.12][/home/ddxy/anaconda3/lib/libpython3.12.so][cfound components: Interpreter Development Development.Module Development.Embed ][v3.12.4()]"
-		},
-		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs",
 			"properties" : 
 			[
@@ -2052,138 +2040,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "TRUE"
-		},
-		{
-			"name" : "_Python3_Compiler_REASON_FAILURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Compiler reason failure"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
-			"name" : "_Python3_DEVELOPMENT_EMBED_SIGNATURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "149b8974faceb86404f4a9fda25b8dcc"
-		},
-		{
-			"name" : "_Python3_DEVELOPMENT_MODULE_SIGNATURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "c73a8b094f342878cb32cdb34946ad38"
-		},
-		{
-			"name" : "_Python3_Development_REASON_FAILURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Development reason failure"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
-			"name" : "_Python3_EXECUTABLE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to a program."
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/home/ddxy/anaconda3/bin/python3"
-		},
-		{
-			"name" : "_Python3_INCLUDE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to a file."
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/home/ddxy/anaconda3/include/python3.12"
-		},
-		{
-			"name" : "_Python3_INTERPRETER_PROPERTIES",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Python3 Properties"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "Python;3;12;4;64;;cpython-312-x86_64-linux-gnu;abi3;/home/ddxy/anaconda3/lib/python3.12;/home/ddxy/anaconda3/lib/python3.12;/home/ddxy/anaconda3/lib/python3.12/site-packages;/home/ddxy/anaconda3/lib/python3.12/site-packages"
-		},
-		{
-			"name" : "_Python3_INTERPRETER_SIGNATURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "f95d3d38e3eaa317668389a2ffabbafb"
-		},
-		{
-			"name" : "_Python3_Interpreter_REASON_FAILURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Interpreter reason failure"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
-			"name" : "_Python3_LIBRARY_RELEASE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to a library."
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/home/ddxy/anaconda3/lib/libpython3.12.so"
-		},
-		{
-			"name" : "_Python3_NumPy_REASON_FAILURE",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "NumPy reason failure"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
 		},
 		{
 			"name" : "k4a_DIR",

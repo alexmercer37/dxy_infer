@@ -23,8 +23,8 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=/usr/bin/g++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -49,8 +49,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc
+//C compiler
+CMAKE_C_COMPILER:STRING=/usr/bin/gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -621,8 +621,6 @@ CUDA_run_nvcc:INTERNAL=/usr/share/cmake-3.28/Modules/FindCUDA/run_nvcc.cmake
 FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr][/usr/bin/nvcc][/usr/include][/usr/lib/x86_64-linux-gnu/libcudart.so][v12.0()]
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][v4.5.1()]
-//Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/home/ddxy/anaconda3/bin/python3][/home/ddxy/anaconda3/include/python3.12][/home/ddxy/anaconda3/lib/libpython3.12.so][cfound components: Interpreter Development Development.Module Development.Embed ][v3.12.4()]
 //Details about finding PythonLibs
 FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpython3.12.so][/usr/include/python3.12][v3.12.3(3)]
 //ADVANCED property for variable: PYTHON_INCLUDE_DIR
@@ -633,23 +631,4 @@ PYTHON_LIBRARY-ADVANCED:INTERNAL=1
 PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
-//Compiler reason failure
-_Python3_Compiler_REASON_FAILURE:INTERNAL=
-_Python3_DEVELOPMENT_EMBED_SIGNATURE:INTERNAL=149b8974faceb86404f4a9fda25b8dcc
-_Python3_DEVELOPMENT_MODULE_SIGNATURE:INTERNAL=c73a8b094f342878cb32cdb34946ad38
-//Development reason failure
-_Python3_Development_REASON_FAILURE:INTERNAL=
-//Path to a program.
-_Python3_EXECUTABLE:INTERNAL=/home/ddxy/anaconda3/bin/python3
-//Path to a file.
-_Python3_INCLUDE_DIR:INTERNAL=/home/ddxy/anaconda3/include/python3.12
-//Python3 Properties
-_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;4;64;;cpython-312-x86_64-linux-gnu;abi3;/home/ddxy/anaconda3/lib/python3.12;/home/ddxy/anaconda3/lib/python3.12;/home/ddxy/anaconda3/lib/python3.12/site-packages;/home/ddxy/anaconda3/lib/python3.12/site-packages
-_Python3_INTERPRETER_SIGNATURE:INTERNAL=f95d3d38e3eaa317668389a2ffabbafb
-//Interpreter reason failure
-_Python3_Interpreter_REASON_FAILURE:INTERNAL=
-//Path to a library.
-_Python3_LIBRARY_RELEASE:INTERNAL=/home/ddxy/anaconda3/lib/libpython3.12.so
-//NumPy reason failure
-_Python3_NumPy_REASON_FAILURE:INTERNAL=
 
