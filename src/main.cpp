@@ -25,6 +25,7 @@ int main()
   pthread_create(&threads[0], NULL, pthread::k4aUpdate, NULL);
   pthread_create(&threads[1], NULL, pthread::create_infer, NULL);
   pthread_create(&threads[1], NULL, pthread::create_infer_seg, NULL);
+  pthread_create(&threads[1], NULL, pthread::usb_camera_infer, NULL);
 
   while (1)
   {

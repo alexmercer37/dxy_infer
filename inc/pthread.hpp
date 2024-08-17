@@ -28,5 +28,6 @@ public:
     static void *k4aUpdate(void *argc);
     static void *create_infer(void *argc);
     static void *create_infer_seg(void *argc);
+    static void *usb_camera_infer(void *argc);
 };
 #endif

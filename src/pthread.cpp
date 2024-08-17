@@ -89,7 +89,7 @@ void *pthread::create_infer(void *argc)
             usleep(100);
 
             // pthread_mutex_lock(&buff_mutex);
-            cv::imshow("red", *output);
+            cv::imshow("k4a", *output);
             cv::waitKey(1);
             // pthread_mutex_unlock(&buff_mutex);
             // usleep(100);
@@ -125,10 +125,47 @@ void *pthread::create_infer_seg(void *argc)
                 cv::waitKey(1);
             }
             else
-                std::cout << "Error: output is empty!" << std::endl;
+                std::cout << "Error: seg_output is empty!" << std::endl;
         }
 
         usleep(100);
+    }
+    pthread_exit(NULL);
+}
+
+void *pthread::usb_camera_infer(void *argc)
+{
+    auto yolo = yolo::load("/home/ddxy/下载/dxy_infer-master/yolov8n.transd.engine", yolo::Type::V8);
+    if (yolo == nullptr)
+    {
+        std::cout << "Loading usb_yolo failed" << std::endl;
+        return nullptr;
+    }
+
+    cv::VideoCapture capture(2);
+    detect->setYolo(yolo);
+
+    std::shared_ptr<cv::Mat> output;
+    std::shared_ptr<cv::Mat> frame;
+    frame.reset(new cv::Mat);
+
+    while (1)
+    {
+
+        capture.read(*frame);
+
+        pthread_mutex_lock(&buff_mutex);
+        output = detect->single_inference(frame, yolo);
+        pthread_mutex_unlock(&buff_mutex);
+        usleep(100);
+
+        if (output != nullptr)
+        {
+            cv::imshow("USB_CAMERA", *output);
+            cv::waitKey(1);
+        }
+        else
+            std::cout << "Error: usb_camera_output is empty!" << std::endl;
     }
     pthread_exit(NULL);
 }
