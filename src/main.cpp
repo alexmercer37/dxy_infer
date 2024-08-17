@@ -19,6 +19,7 @@ int main()
 
   matBuff.reset(new cv::Mat);
   depthBuff.reset(new cv::Mat);
+  greyBuff.reset(new cv::Mat);
 
   pthread_t threads[10] = {0};
 

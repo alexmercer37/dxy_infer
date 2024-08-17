@@ -19,6 +19,7 @@
 #define python_test_succeed
 
 inline std::shared_ptr<cv::Mat> matBuff;
+inline std::shared_ptr<cv::Mat> greyBuff;
 inline std::shared_ptr<cv::Mat> depthBuff;
 inline pthread_mutex_t buff_mutex;
 

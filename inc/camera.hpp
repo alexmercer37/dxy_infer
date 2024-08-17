@@ -26,6 +26,7 @@ public:
     cv::Mat *getdepth(k4a::device &device, k4a::capture &capture, cv::Mat &cv_depth, k4a::transformation &k4aTransformation);
     cv::Mat *getir(k4a::device &device, k4a::capture &capture, cv::Mat &cv_infrared, k4a::transformation &k4aTransformation);
     void stopCamera();
+    void camera_detect(cv::Mat currFrame);
 
 private:
     u_int32_t device_count;
@@ -41,5 +42,7 @@ private:
     cv::Mat cv_infrared;
     k4a::transformation k4aTransformation;
     k4a::calibration k4aCalibration;
+    cv::Mat pre_prame;
+    int count = 0;
 };
 #endif

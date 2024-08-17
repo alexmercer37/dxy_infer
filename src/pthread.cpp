@@ -30,6 +30,7 @@ void *pthread::k4aUpdate(void *argc)
 {
     camera->init_kinect(Device, capture, k4aTransformation, k4aCalibration);
     // int frame_count = 0;
+
     while (1)
     {
         // std::ostringstream filename;
@@ -41,7 +42,7 @@ void *pthread::k4aUpdate(void *argc)
         pthread_mutex_lock(&buff_mutex);
 
         rgb_ptr = camera->getpicture(Device, capture, rgb_frame, k4aTransformation);
-        // depth_ptr = camera->getdepth(Device, capture, depth_frame, k4aTransformation);
+        depth_ptr = camera->getdepth(Device, capture, depth_frame, k4aTransformation);
 
         // cv::imwrite(filename.str(), *rgb_ptr);
 
@@ -49,20 +50,30 @@ void *pthread::k4aUpdate(void *argc)
 
         pthread_mutex_unlock(&buff_mutex);
         cv::cvtColor(*rgb_ptr, *rgb_ptr, cv::COLOR_BGRA2BGR);
+
         pthread_mutex_lock(&buff_mutex);
 
         matBuff = std::make_shared<cv::Mat>(rgb_ptr->clone());
-        // depthBuff = std::make_shared<cv::Mat>(depth_ptr->clone());
+        depthBuff = std::make_shared<cv::Mat>(depth_ptr->clone());
+
+        cvtColor(*matBuff, *greyBuff, cv::COLOR_BGR2GRAY);
 
         pthread_mutex_unlock(&buff_mutex);
 
+        camera->camera_detect(*greyBuff);
+
         if (matBuff->empty())
         {
-            std::cout << "Error: matBuff is empty!" << std::endl;
+            throw std::runtime_error("Error: matBuff is empty!");
+        }
+
+        if (depthBuff->empty())
+        {
+            throw std::runtime_error("Error: depthBuff is empty!");
         }
 
         rgb_ptr->release();
-        // depth_ptr->release();
+        depth_ptr->release();
 
         usleep(100);
     }
@@ -71,10 +82,10 @@ void *pthread::k4aUpdate(void *argc)
 
 void *pthread::create_infer(void *argc)
 {
-    auto yolo = yolo::load("yolov8n.transd.engine", yolo::Type::V8);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/yolov8n.transd.engine", yolo::Type::V8);
     if (yolo == nullptr)
     {
-        std::cout << "Loading yolo failed" << std::endl;
+        throw std::runtime_error("Loading yolo failed");
         return nullptr;
     }
 
@@ -90,11 +101,8 @@ void *pthread::create_infer(void *argc)
             pthread_mutex_unlock(&buff_mutex);
             usleep(100);
 
-            // pthread_mutex_lock(&buff_mutex);
             cv::imshow("k4a", *output);
             cv::waitKey(1);
-            // pthread_mutex_unlock(&buff_mutex);
-            // usleep(100);
         }
     }
     pthread_exit(NULL);
@@ -102,10 +110,10 @@ void *pthread::create_infer(void *argc)
 
 void *pthread::create_infer_seg(void *argc)
 {
-    auto yolo = yolo::load("yolov8n-seg.b1.transd.engine", yolo::Type::V8Seg);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/yolov8n-seg.b1.transd.engine", yolo::Type::V8Seg);
     if (yolo == nullptr)
     {
-        std::cout << "Loading yolo_seg failed" << std::endl;
+        throw std::runtime_error("Loading yolo_seg failed");
         return nullptr;
     }
 
@@ -137,10 +145,10 @@ void *pthread::create_infer_seg(void *argc)
 
 void *pthread::usb_camera_infer(void *argc)
 {
-    auto yolo = yolo::load("yolov8n.transd.engine", yolo::Type::V8);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/yolov8n.transd.engine", yolo::Type::V8);
     if (yolo == nullptr)
     {
-        std::cout << "Loading usb_yolo failed" << std::endl;
+        throw std::runtime_error("Loading usb_yolo failed");
         return nullptr;
     }
 

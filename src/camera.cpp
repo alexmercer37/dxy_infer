@@ -138,3 +138,34 @@ void Camera::stopCamera()
 {
   device.close();
 }
+
+void Camera::camera_detect(cv::Mat cur_frame)
+{
+
+  if (pre_prame.empty())
+  {
+    pre_prame = cur_frame.clone();
+  }
+
+  cv::Mat diff;
+  cv::absdiff(pre_prame, cur_frame, diff);
+
+  int frame_diff = cv::countNonZero(diff);
+  cout << frame_diff << endl;
+
+  if (frame_diff == 0)
+  {
+    count++;
+  }
+  else
+  {
+    count = 0;
+  }
+
+  if (count >= 10)
+  {
+    throw std::runtime_error("Error: camera do not update!");
+  }
+
+  pre_prame = cur_frame.clone();
+}
