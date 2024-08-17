@@ -156,7 +156,7 @@ void TCP_Manage::Close(int &listenfd)
 void *TCP_Manage::tcp_send(void *argc)
 {
     Addr addr((char *)"192.168.3.171", 25000);
-    const char *diaomao = "diaomao";
+    const char *data = "Whu_robocon";
 
     int clientfd = tcp.Get_Socket(addr);
 
@@ -164,7 +164,7 @@ void *TCP_Manage::tcp_send(void *argc)
 
     while (1)
     {
-        manage.Send(clientfd, (char *)diaomao, sizeof(diaomao));
+        manage.Send(clientfd, (char *)data, sizeof(data));
     }
 
     manage.Close(clientfd);

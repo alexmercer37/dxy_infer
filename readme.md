@@ -1,4 +1,4 @@
-dxy-infer配置
+# dxy-infer配置
 ### locate的问题
 ubuntu可以利用locate进行目标文件定位，但在使用过程中出现了添加或者删除文件不及时的问题，需要对数据库进行更新，因为locate指令是针对数据库运行的
 > https://blog.csdn.net/accumulate_zhang/article/details/77587136
@@ -71,3 +71,12 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - infer.hpp：tensorRT 的重新包装，接口简单
 - yolo.hpp：yolo 任务的包装器。基于 infer.hpp
 ---
+# 版本更新
+### 8.17
+- 多线程更新，更新了调用k4a相机的线程，通过线程成功调用yolov8的目标检测和分割，同时测试了调用电脑的原装相机的线程，对多线程做了一定的封装
+  >https://immortalqx.github.io/2021/12/05/cpp-notes-4/
+- 串口调用的更新，封装了串口的类，在主函数写入了通过串口接受不同的消息来启动不同的线程
+- 更新了c++_python的联合编译，加入了自己搭建的python环境下的pytorch的目标检测文件
+- 更新了24年上车的自启动脚本
+- 更新了tcp网络通信，进行了简单封装，并且在主函数中可以通过多线程调用
+- 加入了linux的can通信相关内容，加入了循环队列，配合can通信的使用
