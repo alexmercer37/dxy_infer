@@ -84,5 +84,20 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - 解决了相机数据突然丢失但是不退出运行的遗留问题，主要针对深度图丢失导致的rgb图像的不更新，从而只针对一张固定的图片进行推理，利用rgb转灰度图，标准库的函数对连续两张灰度图的差异进行检测，判定如果连续十张图片都不变化，则认为相机不更新，进而抛出异常，中断程序，等待自启动脚本的重新启动。
 - 增加了一些抛异常，使整个代码更加严谨，更方便找到问题所在
 ### 8.18
-- 更新yolov8的使用教程
+- 更新yolov8的使用教程，安装包在下方网址：
   >https://github.com/ultralytics/ultralytics/tree/main?tab=readme-ov-file
+- yolov8使用教程，需要自己写train.py，export.py等等文件，可以在本文档的yolov8中找到
+  >https://docs.ultralytics.com/tasks/detect/
+- 使用方法，首先通过指定训练的预训练集，本文使用的是yolov8n.pt，适用于处理模型较为简单的检测，可以指定训练中的参数，详见下方网址
+  >https://mmyolo.readthedocs.io/zh-cn/latest/recommended_topics/algorithm_descriptions/yolov8_description.html
+
+  >https://blog.csdn.net/StopAndGoyyy/article/details/140071942
+- 指定需要使用的yaml文件，主要是cfg类型和data类型，cfg主要是指明需要检测的目标的一些参数，通过nc可以对被检测目标的类型个数进行指定，data类型主要是指明数据集的位置
+- 在终端中运行python脚本，可以通过指令指明一些需要的参数，例如--cache ram可以加速训练，有显卡驱动可以有效加速训练，记得安装anaconda进行python环境的配置
+- 成功训练之后可以在run文件夹下找到训练完成的.pt文件，以及训练中的参数，例如损失函数的值以及目标检测的准确度，通过export.py脚本可以将.pt文件转换成.onnx文件
+- 一般来说训练的文件是TF32类型，由于tensorRT不支持该类型，需要将其转换为TF16类型，通过v8trans.py进行转换，将转换完成的.onnx文件在tensorRT中利用可执行文件转换成engine文件，在代码中调用
+- 发现了一个segmentation fault，由于auto caption = cv::format("%s %.2f", name, obj.confidence);存在风险，可能造成内存溢出，所以用了数据流进行更加安全的操作
+- 利用yolov8对红球和蓝球进行了训练，数据集只有不到1000,训练的epoch达到1000，效果超出预期，说明代码及其使用的架构的更新非常重要
+- 数据集的制作详见yolov5数据集的制作，两者没有大的差异
+### 8.19
+- python环境中常见的问题如下：
