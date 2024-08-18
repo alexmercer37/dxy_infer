@@ -99,6 +99,7 @@ void Detect::batch_inference()
 std::shared_ptr<cv::Mat> Detect::single_inference(std::shared_ptr<cv::Mat> image, std::shared_ptr<yolo::Infer> yolo)
 {
     auto objs = yolo->forward(yolo::Image((*image).data, (*image).cols, (*image).rows));
+    std::ostringstream oss;
 
     for (auto &obj : objs)
     {
@@ -107,12 +108,13 @@ std::shared_ptr<cv::Mat> Detect::single_inference(std::shared_ptr<cv::Mat> image
 
         cv::rectangle(*image, cv::Point(obj.left, obj.top), cv::Point(obj.right, obj.bottom), cv::Scalar(b, g, r), 5);
 
-        auto name = cocolabels[obj.class_label];
-        auto caption = cv::format("%s %.2f", name, obj.confidence);
-        int width = cv::getTextSize(caption, 0, 1, 2, nullptr).width + 10;
+        // auto name = cocolabels[obj.class_label];
+        // oss << name << " " << std::fixed << std::setprecision(2) << obj.confidence;
+        // auto caption = oss.str();
+        // int width = cv::getTextSize(caption, 0, 1, 2, nullptr).width + 10;
 
-        cv::rectangle(*image, cv::Point(obj.left - 3, obj.top - 33), cv::Point(obj.left + width, obj.top), cv::Scalar(b, g, r), -1);
-        cv::putText(*image, caption, cv::Point(obj.left, obj.top - 5), 0, 1, cv::Scalar::all(0), 2, 16);
+        // cv::rectangle(*image, cv::Point(obj.left - 3, obj.top - 33), cv::Point(obj.left + width, obj.top), cv::Scalar(b, g, r), -1);
+        // cv::putText(*image, caption, cv::Point(obj.left, obj.top - 5), 0, 1, cv::Scalar::all(0), 2, 16);
     }
     return image;
 }

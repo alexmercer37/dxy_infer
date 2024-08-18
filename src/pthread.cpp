@@ -82,7 +82,7 @@ void *pthread::k4aUpdate(void *argc)
 
 void *pthread::create_infer(void *argc)
 {
-    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/yolov8n.transd.engine", yolo::Type::V8);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/test.engine", yolo::Type::V8);
     if (yolo == nullptr)
     {
         throw std::runtime_error("Loading yolo failed");
@@ -110,7 +110,7 @@ void *pthread::create_infer(void *argc)
 
 void *pthread::create_infer_seg(void *argc)
 {
-    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/yolov8n-seg.b1.transd.engine", yolo::Type::V8Seg);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/yolov8n-seg.b1.transd.engine", yolo::Type::V8Seg);
     if (yolo == nullptr)
     {
         throw std::runtime_error("Loading yolo_seg failed");
@@ -145,7 +145,7 @@ void *pthread::create_infer_seg(void *argc)
 
 void *pthread::usb_camera_infer(void *argc)
 {
-    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/yolov8n.transd.engine", yolo::Type::V8);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/best.engine", yolo::Type::V8);
     if (yolo == nullptr)
     {
         throw std::runtime_error("Loading usb_yolo failed");
