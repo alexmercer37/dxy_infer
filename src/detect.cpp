@@ -16,7 +16,7 @@ yolo::Image cvimg(const cv::Mat &image)
     return yolo::Image(image.data, image.cols, image.rows);
 }
 
-void Detect::time()
+void Detect::Time()
 {
     clock_t start, end;
     auto yoloStart = std::chrono::system_clock::now();
@@ -103,10 +103,26 @@ std::shared_ptr<cv::Mat> Detect::single_inference(std::shared_ptr<cv::Mat> image
 
     for (auto &obj : objs)
     {
+
+#ifndef use_random_color
         uint8_t b, g, r;
         std::tie(b, g, r) = yolo::random_color(obj.class_label);
-
         cv::rectangle(*image, cv::Point(obj.left, obj.top), cv::Point(obj.right, obj.bottom), cv::Scalar(b, g, r), 5);
+#endif
+
+#ifndef use_changed_color
+        std::vector<cv::Scalar> colors;
+        srand(time(0));
+        for (int i = 0; i < 80; i++)
+        {
+            int b = rand() % 256;
+            int g = rand() % 256;
+            int r = rand() % 256;
+            colors.push_back(cv::Scalar(b, g, r));
+        }
+        cv::Scalar color = colors[obj.class_label];
+        cv::rectangle(*image, cv::Point(obj.left, obj.top), cv::Point(obj.right, obj.bottom), color, 5);
+#endif
 
         // auto name = cocolabels[obj.class_label];
         // oss << name << " " << std::fixed << std::setprecision(2) << obj.confidence;

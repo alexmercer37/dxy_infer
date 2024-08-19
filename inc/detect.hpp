@@ -13,8 +13,10 @@
 #define __INFER_H__
 
 #include "main.hpp"
+#define use_random_color
 
 static const char *cocolabels[] = {"red_ball", "blue_ball"};
+
 class Detect
 {
 private:
@@ -22,7 +24,7 @@ private:
     std::shared_ptr<yolo::Infer> yolo;
 
 public:
-    void time();
+    void Time();
     void perf();
     void batch_inference();
     std::shared_ptr<cv::Mat> single_inference(std::shared_ptr<cv::Mat> image, std::shared_ptr<yolo::Infer> yolo);

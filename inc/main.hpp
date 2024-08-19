@@ -42,6 +42,7 @@
 #include <sys/socket.h>
 #include <signal.h>
 #include <sys/prctl.h>
+#include <time.h>
 
 #define test_tcp
 #define test_uart

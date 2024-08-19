@@ -122,3 +122,4 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
   >https://blog.csdn.net/weixin_44037416/article/details/96842058
 - ModuleNotFoundError: No module named 'yaml'
   >https://blog.csdn.net/HuanCaoO/article/details/104629625
+- 更新了推理的可视化，目标框的颜色可以进行随机变化
