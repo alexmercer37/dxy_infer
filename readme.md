@@ -45,7 +45,7 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - 显卡驱动rtx2060，版本535.183.01，最高支持cuda12.2
 - cuda12.2,cudnn和cuda版本匹配即可
   >https://blog.csdn.net/tangjiahao10/article/details/125225786
-- opencv4.5.1，高版本应该也适配
+- 架构代码时使用的opencv4.5.1，在测试opencv的dnn时更新了opencv的版本，目前版本是4.9.0，安装方便没有错误，可以适配该代码
 - pcl1.13.1，目前没有深入进行编译测试
 - gcc,g++版本11.4,cmake版本3.28.3
 - tensorRT版本8.6.1.6

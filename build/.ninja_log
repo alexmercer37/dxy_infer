@@ -1,10 +1,10 @@
 # ninja log v5
-1	163	1723950890549860528	CMakeFiles/pro.dir/src/uart.cpp.o	10a4b8dd8bdbc890
-1	323	1723950890709861544	CMakeFiles/pro.dir/src/can_send.cpp.o	140a84540b553e71
-3	2200	1723985908335142121	CMakeFiles/pro.dir/src/queue.cpp.o	9e7bdd987907a264
-2	1845	1723989087549863096	CMakeFiles/pro.dir/src/pthread.cpp.o	2833e23e7366140d
-1704	1859	1723989100267832456	/home/ddxy/Downloads/dxy_infer-master/workspace/pro	e8933ca51af4db5
-2	1704	1723989100114832823	CMakeFiles/pro.dir/src/main.cpp.o	a8b7aff84987fbb7
-3	2271	1723985908406142087	CMakeFiles/pro.dir/src/tcp.cpp.o	83d82ab5f1c01d09
-2	2280	1723985908415142083	CMakeFiles/pro.dir/src/camera.cpp.o	2ed8dab2c6850fe6
-2	2377	1723989088079861814	CMakeFiles/pro.dir/src/detect.cpp.o	a769281ed158ed4
+2	158	1724049056505116261	CMakeFiles/pro.dir/src/uart.cpp.o	10a4b8dd8bdbc890
+1	290	1724049056637124055	CMakeFiles/pro.dir/src/can_send.cpp.o	140a84540b553e71
+1	2194	1724049058541236255	CMakeFiles/pro.dir/src/main.cpp.o	a8b7aff84987fbb7
+2	2210	1724049058557237196	CMakeFiles/pro.dir/src/tcp.cpp.o	83d82ab5f1c01d09
+2	2211	1724049058558237255	CMakeFiles/pro.dir/src/queue.cpp.o	9e7bdd987907a264
+1	2267	1724049058614240549	CMakeFiles/pro.dir/src/camera.cpp.o	2ed8dab2c6850fe6
+2	2338	1724049058685244726	CMakeFiles/pro.dir/src/pthread.cpp.o	2833e23e7366140d
+1	2842	1724049059187274236	CMakeFiles/pro.dir/src/detect.cpp.o	a769281ed158ed4
+2842	3118	1724049059463290442	/home/ddxy/Downloads/dxy_infer-master/workspace/pro	f12400150fdbe04a
