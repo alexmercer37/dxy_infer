@@ -39,6 +39,8 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 原因是cmakelists.txt设置的gpu算力和本电脑的显卡gpu的算力不匹配
 > https://blog.csdn.net/FL1623863129/article/details/124207995
 > https://en.wikipedia.org/wiki/CUDA#GPUs_supported
+出现报错 libstdc++.so.6 GLIBCXX_3.4.32 not found以及相关的.so文件没有找到，一般是软链接的问题，可以参考以下网址
+> https://blog.csdn.net/HITORANGE/article/details/135315149
 ### 环境配置
 - 显卡驱动rtx2060，版本535.183.01，最高支持cuda12.2
 - cuda12.2,cudnn和cuda版本匹配即可
@@ -71,8 +73,9 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - infer.hpp：tensorRT 的重新包装，接口简单
 - yolo.hpp：yolo 任务的包装器。基于 infer.hpp
 ---
-# 版本更新
+# 版本更新`
 ### 8.17
+#### `代码的完善`
 - 多线程更新，更新了调用k4a相机的线程，通过线程成功调用yolov8的目标检测和分割，同时测试了调用电脑的原装相机的线程，对多线程做了一定的封装
   >https://immortalqx.github.io/2021/12/05/cpp-notes-4/
 - 串口调用的更新，封装了串口的类，在主函数写入了通过串口接受不同的消息来启动不同的线程
@@ -84,6 +87,7 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - 解决了相机数据突然丢失但是不退出运行的遗留问题，主要针对深度图丢失导致的rgb图像的不更新，从而只针对一张固定的图片进行推理，利用rgb转灰度图，标准库的函数对连续两张灰度图的差异进行检测，判定如果连续十张图片都不变化，则认为相机不更新，进而抛出异常，中断程序，等待自启动脚本的重新启动。
 - 增加了一些抛异常，使整个代码更加严谨，更方便找到问题所在
 ### 8.18
+#### `yolov8相关内容`
 - 更新yolov8的使用教程，安装包在下方网址：
   >https://github.com/ultralytics/ultralytics/tree/main?tab=readme-ov-file
 - yolov8使用教程，需要自己写train.py，export.py等等文件，可以在本文档的yolov8中找到
@@ -99,5 +103,22 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - 发现了一个segmentation fault，由于auto caption = cv::format("%s %.2f", name, obj.confidence);存在风险，可能造成内存溢出，所以用了数据流进行更加安全的操作
 - 利用yolov8对红球和蓝球进行了训练，数据集只有不到1000,训练的epoch达到1000，效果超出预期，说明代码及其使用的架构的更新非常重要
 - 数据集的制作详见yolov5数据集的制作，两者没有大的差异
-### 8.19
-- python环境中常见的问题如下：
+- yolov8目标检测的相关信息的介绍
+
+| Model                                                                                | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>A100 TensorRT<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
+| ------------------------------------------------------------------------------------ | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+| [YOLOv8n](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.pt) | 640                   | 37.3                 | 80.4                           | 0.99                                | 3.2                | 8.7               |
+| [YOLOv8s](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8s.pt) | 640                   | 44.9                 | 128.4                          | 1.20                                | 11.2               | 28.6              |
+| [YOLOv8m](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8m.pt) | 640                   | 50.2                 | 234.7                          | 1.83                                | 25.9               | 78.9              |
+| [YOLOv8l](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8l.pt) | 640                   | 52.9                 | 375.2                          | 2.39                                | 43.7               | 165.2             |
+| [YOLOv8x](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8x.pt) | 640                   | 53.9                 | 479.1                          | 3.53                                | 68.2               | 257.8             |
+
+
+### `8.19`
+#### 更新python环境配置中的一些问题
+- PackagesNotFoundError: The following packages are not available from current channels的解决办法
+  >https://blog.csdn.net/weixin_45552562/article/details/109668589
+- ModuleNotFoundError: No module named 'PIL'
+  >https://blog.csdn.net/weixin_44037416/article/details/96842058
+- ModuleNotFoundError: No module named 'yaml'
+  >https://blog.csdn.net/HuanCaoO/article/details/104629625
