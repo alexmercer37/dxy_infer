@@ -66,7 +66,8 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - #### 注意其中的报错或者警告
 - .pt文件转换onnx文件教程后续添加
 - 将转换的.onnx通过tensorRT转换为.engine文件，放在指定路径下，通过函数load即可调用
-- 对文件中的src/kernels进行单独编译，生成的libcu.a静态链接库可以在build文件夹中找到，复制到workspace文件夹中，之后删除build文件夹，对该文件中的另一个cmakelists.txt进行编译，得到可执行文件pro，在workspace文件夹中，运行即可
+- 本文件需要分别对.cu文件与.cpp文件进行分别编译，在进行.cu编译时可以将针对.cpp文件的CMakeLists.txt改名，将src/kernels中的.cu文件和CMakeLists.txt文件放在src文件夹外，对main.hpp进行更改，将// #define use_cu的注释解除，编译完成后再放入src/kernels中，将之前改名的cmakelists.txt文件的名字改回（一个目录下只允许有一个cmakelist.txt文件），在build里面找到libcu.a文件
+- 对文件中的src/kernels进行单独编译后，生成的libcu.a静态链接库可以在build文件夹中找到，复制到workspace文件夹中，之后删除build文件夹，对main.hpp进行更改，将#define use_cu重新进行注释，对针对.cpp的cmakelists.txt进行编译，得到可执行文件pro，在workspace文件夹中，运行即可
 - 可以使用time函数进行速度检测，经测试，速度可以达到0.5ms一次推理，但由于相机帧数的限制，只能达到30帧的速度
 ### 代码介绍
 - cpm.hpp：生产者-消费者模型，对于直接推理任务，cpm.hpp 可以转变为自动多批次生产者-消费者模型
@@ -123,3 +124,17 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - ModuleNotFoundError: No module named 'yaml'
   >https://blog.csdn.net/HuanCaoO/article/details/104629625
 - 更新了推理的可视化，目标框的颜色可以进行随机变化
+### `8.20`
+#### 更新环境配置中碰到的问题
+- pcl编译时报错没有flann，安装一个flann的包编译安装即可，记得make和make install
+  >https://blog.csdn.net/weixin_42518636/article/details/122079825
+- pcl编译时报错fatal error: lz4.h: No such file or directory
+ #include "lz4.h"
+  >https://askubuntu.com/questions/774806/fatal-error-lz4-h-no-such-file-or-directory-include-lz4-h
+- pcl编译时报错`/bin/ld: …/…/lib/libpcl_kdtree.so.1.8.0: undefined reference to LZ4_resetStreamHC'/bin/ld: ../../lib/libpcl_kdtree.so.1.8.0: undefined reference to LZ4_setStreamDecode’/bin/ld: …/…/lib/libpcl_kdtree.so.1.8.0: undefined reference to LZ4_decompress_safe' /bin/ld: ../../lib/libpcl_kdtree.so.1.8.0: undefined reference to LZ4_decompress_safe_continue’/bin/ld: …/…/lib/libpcl_kdtree.so.1.8.0: undefined reference to LZ4_compress_HC_continue’ `
+  >https://blog.csdn.net/weixin_45534376/article/details/132864676
+- 中文输入法的简单安装
+  >https://blog.csdn.net/windson_f/article/details/124932523
+- 一键安装和卸载ros
+  >https://www.cnblogs.com/tdyizhen1314/p/16854333.html
+- 在其他电脑上配置了该文件，发现有几个问题，在编译.cu文件时会涉及到main.hpp中的文件，可能会报错，在此作了用宏定义去注释部分代码来解决，并更新了使用说明

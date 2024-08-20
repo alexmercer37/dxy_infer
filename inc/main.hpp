@@ -11,16 +11,21 @@
 
 #ifndef MAIN_H
 #define MAIN_H
+// #define use_cu
 
-#include "OpencvHead.hpp"
 #include "cpm.hpp"
 #include "infer.hpp"
 #include "yolo.hpp"
+
+#ifndef use_cu
+#include "OpencvHead.hpp"
 #include "detect.hpp"
 #include "uart.hpp"
 #include "camera.hpp"
 #include "pthread.hpp"
 #include "tcp.hpp"
+#endif
+
 #include <pthread.h>
 #include <k4a/k4a.hpp>
 #include <k4arecord/record.h>

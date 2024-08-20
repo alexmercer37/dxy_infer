@@ -24,6 +24,7 @@
 
   >https://blog.csdn.net/m0_72734364/article/details/134183991?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ECtr-1-134183991-blog-123754272.235%5Ev43%5Epc_blog_bottom_relevance_base2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ECtr-1-134183991-blog-123754272.235%5Ev43%5Epc_blog_bottom_relevance_base2&utm_relevant_index=1
 - anaconda：正常安装，一遍成功
+  >https://developer.huawei.com/consumer/cn/blog/topic/03940616429410292
 - cuda-12.1：有问题，报错是gcc版本问题，改了很多版本，在官网上查看了匹配的gcc版本，也没有解决，最后换了12.2成功安装
   >https://blog.csdn.net/ckhxhxxss/article/details/136951689 
 
