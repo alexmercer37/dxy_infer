@@ -16,11 +16,13 @@
 
 #define MAXSIZE 100
 using namespace std;
+
+template <typename T>
 class Queue
 {
 private:
-    void **queue;
-    // std::vector<int> queue;
+    T *queue;
+    // std::vector<T> queue;
     //! 利用c++标准库容器进行自动内存分配
     int front, rear;
 
@@ -46,7 +48,7 @@ public:
 
         return (front == rear);
     }
-    void push(void *data)
+    void push(T data)
     {
         if (rear == MAXSIZE - 1)
             return;
@@ -62,15 +64,15 @@ public:
         front = (front + 1) % MAXSIZE;
         queue[front] = nullptr;
     }
-    void *getfront()
+    T getfront()
     {
         if (front == rear)
             return nullptr;
         int head = front + 1;
-        void *data = queue[head];
+        T data = queue[head];
         return data;
     }
-    void *getdata(int num)
+    T getdata(int num)
     {
         return queue[(front + num) % MAXSIZE];
     }
