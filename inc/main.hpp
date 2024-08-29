@@ -24,6 +24,7 @@
 #include "camera.hpp"
 #include "pthread.hpp"
 #include "tcp.hpp"
+#include "realsense.hpp"
 #include <k4a/k4a.hpp>
 #include <k4arecord/record.h>
 #include <k4arecord/playback.h>

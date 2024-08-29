@@ -13,11 +13,16 @@
 			"add_executable",
 			"link_directories",
 			"target_link_libraries",
+			"set_target_properties",
+			"include",
+			"find_package",
 			"include_directories"
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"CMakeLists.txt",
+			"/usr/local/lib/cmake/realsense2/realsense2Targets.cmake",
+			"/usr/local/lib/cmake/realsense2/realsense2Config.cmake"
 		],
 		"nodes" : 
 		[
@@ -27,37 +32,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 56,
+				"line" : 60,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 46,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 60,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 61,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 62,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 63,
+				"line" : 49,
 				"parent" : 0
 			},
 			{
@@ -69,19 +50,75 @@
 			{
 				"command" : 2,
 				"file" : 0,
+				"line" : 65,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
 				"line" : 66,
 				"parent" : 0
 			},
 			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 67,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 68,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 71,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 35,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 10
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 35,
+				"parent" : 11
+			},
+			{
+				"file" : 1,
+				"parent" : 12
+			},
+			{
 				"command" : 3,
+				"file" : 1,
+				"line" : 84,
+				"parent" : 13
+			},
+			{
+				"command" : 6,
 				"file" : 0,
 				"line" : 3,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 6,
 				"file" : 0,
-				"line" : 35,
+				"line" : 38,
 				"parent" : 0
 			}
 		]
@@ -95,30 +132,37 @@
 					"fragment" : " -D_GLIBCXX_USE_CXX17_ABI=1 -g -std=gnu++17"
 				}
 			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 8,
+					"define" : "ELPP_NO_DEFAULT_LOG_FILE"
+				}
+			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 9,
+					"backtrace" : 15,
 					"path" : "/home/ddxy/Downloads/dxy_infer-master/."
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 16,
 					"path" : "/home/ddxy/Downloads/dxy_infer-master/src"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 16,
 					"path" : "/usr/local/cuda-12.2/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 16,
 					"path" : "/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 16,
 					"path" : "/home/ddxy/Downloads/dxy_infer-master/inc"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 16,
 					"isSystem" : true,
 					"path" : "/usr/local/include/opencv4"
 				}
@@ -128,7 +172,8 @@
 			{
 				"backtraces" : 
 				[
-					7
+					7,
+					8
 				],
 				"standard" : "17"
 			},
@@ -141,7 +186,8 @@
 				4,
 				5,
 				6,
-				7
+				7,
+				8
 			]
 		}
 	],
@@ -235,6 +281,11 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "-L/home/ddxy/Downloads/dxy_infer-master/realsense2::realsense2",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "-L/usr/local/cuda-12.2/lib64",
 				"role" : "libraryPath"
 			},
@@ -249,7 +300,7 @@
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/ddxy/Downloads/dxy_infer-master/opencv_calib3d:/home/ddxy/Downloads/dxy_infer-master/opencv_core:/home/ddxy/Downloads/dxy_infer-master/opencv_dnn:/home/ddxy/Downloads/dxy_infer-master/opencv_features2d:/home/ddxy/Downloads/dxy_infer-master/opencv_flann:/home/ddxy/Downloads/dxy_infer-master/opencv_gapi:/home/ddxy/Downloads/dxy_infer-master/opencv_highgui:/home/ddxy/Downloads/dxy_infer-master/opencv_imgcodecs:/home/ddxy/Downloads/dxy_infer-master/opencv_imgproc:/home/ddxy/Downloads/dxy_infer-master/opencv_ml:/home/ddxy/Downloads/dxy_infer-master/opencv_objdetect:/home/ddxy/Downloads/dxy_infer-master/opencv_photo:/home/ddxy/Downloads/dxy_infer-master/opencv_stitching:/home/ddxy/Downloads/dxy_infer-master/opencv_video:/home/ddxy/Downloads/dxy_infer-master/opencv_videoio:/usr/local/cuda-12.2/lib64:/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/lib:/home/ddxy/Downloads/dxy_infer-master/workspace:/usr/local/lib",
+				"fragment" : "-Wl,-rpath,/home/ddxy/Downloads/dxy_infer-master/opencv_calib3d:/home/ddxy/Downloads/dxy_infer-master/opencv_core:/home/ddxy/Downloads/dxy_infer-master/opencv_dnn:/home/ddxy/Downloads/dxy_infer-master/opencv_features2d:/home/ddxy/Downloads/dxy_infer-master/opencv_flann:/home/ddxy/Downloads/dxy_infer-master/opencv_gapi:/home/ddxy/Downloads/dxy_infer-master/opencv_highgui:/home/ddxy/Downloads/dxy_infer-master/opencv_imgcodecs:/home/ddxy/Downloads/dxy_infer-master/opencv_imgproc:/home/ddxy/Downloads/dxy_infer-master/opencv_ml:/home/ddxy/Downloads/dxy_infer-master/opencv_objdetect:/home/ddxy/Downloads/dxy_infer-master/opencv_photo:/home/ddxy/Downloads/dxy_infer-master/opencv_stitching:/home/ddxy/Downloads/dxy_infer-master/opencv_video:/home/ddxy/Downloads/dxy_infer-master/opencv_videoio:/home/ddxy/Downloads/dxy_infer-master/realsense2::realsense2:/usr/local/cuda-12.2/lib64:/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6/lib:/home/ddxy/Downloads/dxy_infer-master/workspace:/usr/local/lib",
 				"role" : "libraries"
 			},
 			{
@@ -337,6 +388,11 @@
 			},
 			{
 				"backtrace" : 8,
+				"fragment" : "/usr/local/lib/librealsense2.so.2.56.1",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 9,
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libk4a.so.1.4.2",
 				"role" : "libraries"
 			},
@@ -374,6 +430,11 @@
 				"backtrace" : 7,
 				"fragment" : "/usr/local/lib/libopencv_core.so.4.9.0",
 				"role" : "libraries"
+			},
+			{
+				"backtrace" : 14,
+				"fragment" : "/usr/local/lib/librsutils.a",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
@@ -398,7 +459,8 @@
 				4,
 				5,
 				6,
-				7
+				7,
+				8
 			]
 		}
 	],
@@ -438,6 +500,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/queue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/realsense.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

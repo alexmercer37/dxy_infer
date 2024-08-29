@@ -368,6 +368,9 @@ pro_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 pro_SOURCE_DIR:STATIC=/home/ddxy/Downloads/dxy_infer-master
 
+//The directory containing a CMake configuration file for realsense2.
+realsense2_DIR:PATH=/usr/local/lib/cmake/realsense2
+
 
 ########################
 # INTERNAL cache entries

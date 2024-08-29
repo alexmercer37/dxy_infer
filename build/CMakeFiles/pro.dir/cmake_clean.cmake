@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pro.dir/src/pthread.cpp.o.d"
   "CMakeFiles/pro.dir/src/queue.cpp.o"
   "CMakeFiles/pro.dir/src/queue.cpp.o.d"
+  "CMakeFiles/pro.dir/src/realsense.cpp.o"
+  "CMakeFiles/pro.dir/src/realsense.cpp.o.d"
   "CMakeFiles/pro.dir/src/tcp.cpp.o"
   "CMakeFiles/pro.dir/src/tcp.cpp.o.d"
   "CMakeFiles/pro.dir/src/uart.cpp.o"

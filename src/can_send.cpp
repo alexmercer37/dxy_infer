@@ -5,7 +5,6 @@ int s, nbytes;
 struct sockaddr_can addr;
 struct can_frame can_frame;
 struct ifreq ifr;
-
 void Answer_Master()
 {
     can_frame.can_id = 0x00090101 | CAN_EFF_FLAG; // 扩展帧的标识

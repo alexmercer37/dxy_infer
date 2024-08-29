@@ -273,6 +273,30 @@ src/queue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pro.dir/build.make CMakeFiles/pro.dir/src/queue.cpp.s
 .PHONY : src/queue.cpp.s
 
+src/realsense.o: src/realsense.cpp.o
+.PHONY : src/realsense.o
+
+# target to build an object file
+src/realsense.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pro.dir/build.make CMakeFiles/pro.dir/src/realsense.cpp.o
+.PHONY : src/realsense.cpp.o
+
+src/realsense.i: src/realsense.cpp.i
+.PHONY : src/realsense.i
+
+# target to preprocess a source file
+src/realsense.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pro.dir/build.make CMakeFiles/pro.dir/src/realsense.cpp.i
+.PHONY : src/realsense.cpp.i
+
+src/realsense.s: src/realsense.cpp.s
+.PHONY : src/realsense.s
+
+# target to generate assembly for a file
+src/realsense.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pro.dir/build.make CMakeFiles/pro.dir/src/realsense.cpp.s
+.PHONY : src/realsense.cpp.s
+
 src/tcp.o: src/tcp.cpp.o
 .PHONY : src/tcp.o
 
@@ -348,6 +372,9 @@ help:
 	@echo "... src/queue.o"
 	@echo "... src/queue.i"
 	@echo "... src/queue.s"
+	@echo "... src/realsense.o"
+	@echo "... src/realsense.i"
+	@echo "... src/realsense.s"
 	@echo "... src/tcp.o"
 	@echo "... src/tcp.i"
 	@echo "... src/tcp.s"

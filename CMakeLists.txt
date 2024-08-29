@@ -25,11 +25,14 @@ set(cpp_srcs
     src/detect.cpp
     src/pthread.cpp
     src/tcp.cpp
+    src/can_send.cpp
+    src/realsense.cpp
 )  
 
 find_package(CUDA REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(k4a REQUIRED)
+find_package(realsense2 REQUIRED)
 # find_package(PythonLibs 3 REQUIRED)
 
 include_directories(
@@ -45,6 +48,7 @@ include_directories(
 
 link_directories(
     ${OpenCV_LIBS}
+    ${realsense2_LIBRARY}
     ${CUDA_DIR}/lib64
     ${CUDNN_DIR}/lib64
     ${TENSORRT_DIR}/lib
@@ -62,6 +66,7 @@ target_link_libraries(pro  nvinfer)
 target_link_libraries(pro  cuda cublas cudart cudnn)
 target_link_libraries(pro  pthread)
 target_link_libraries(pro  ${OpenCV_LIBS})
+target_link_libraries(pro  ${realsense2_LIBRARY})
 # target_link_libraries(pro  ${Python3_LIBRARIES})
 target_link_libraries(pro  k4a::k4a)
 # add_custom_target(

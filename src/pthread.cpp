@@ -13,7 +13,7 @@
 #include "../inc/pthread.hpp"
 // #include <python3.12/Python.h>
 // #include <numpy/arrayobject.h>
-
+RealSense *realsense = new RealSense;
 Camera *camera = new Camera;
 Detect *detect = new Detect;
 
@@ -25,6 +25,9 @@ k4a::capture capture;
 k4a::device Device;
 k4a::transformation k4aTransformation;
 k4a::calibration k4aCalibration;
+
+rs2::pipeline pipelines;
+rs2::frameset frame;
 
 void *pthread::k4aUpdate(void *argc)
 {
@@ -71,6 +74,57 @@ void *pthread::k4aUpdate(void *argc)
         {
             throw std::runtime_error("Error: depthBuff is empty!");
         }
+
+        rgb_ptr->release();
+        depth_ptr->release();
+
+        usleep(100);
+    }
+    pthread_exit(NULL);
+}
+
+void *pthread::realsenseUpdate(void *argc)
+{
+    realsense->realsense_init(pipelines);
+
+    while (1)
+    {
+
+        realsense->realsense_update(pipelines, frame);
+
+        pthread_mutex_lock(&buff_mutex);
+
+        rgb_ptr = realsense->get_realsense_rgb(frame);
+        depth_ptr = realsense->get_realsense_depth(frame);
+
+        pthread_mutex_unlock(&buff_mutex);
+
+        cv::cvtColor(*rgb_ptr, *rgb_ptr, cv::COLOR_BGR2RGB);
+
+        pthread_mutex_lock(&buff_mutex);
+
+        matBuff = std::make_shared<cv::Mat>(rgb_ptr->clone());
+        depthBuff = std::make_shared<cv::Mat>(depth_ptr->clone());
+
+        // cvtColor(*matBuff, *greyBuff, cv::COLOR_BGR2GRAY);
+
+        pthread_mutex_unlock(&buff_mutex);
+
+        // camera->camera_detect(*greyBuff);
+
+        if (matBuff->empty())
+        {
+            throw std::runtime_error("Error: matBuff is empty!");
+        }
+
+        if (depthBuff->empty())
+        {
+            throw std::runtime_error("Error: depthBuff is empty!");
+        }
+        cv::imshow("rgb", *matBuff);
+        cv::waitKey(1);
+        cv::imshow("depth", *depthBuff);
+        cv::waitKey(1);
 
         rgb_ptr->release();
         depth_ptr->release();

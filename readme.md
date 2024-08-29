@@ -145,3 +145,8 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - 换源教程,24.04换20.04
 > https://blog.csdn.net/orcer1994/article/details/107497822?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-107497822-blog-106069030.235^v43^pc_blog_bottom_relevance_base2&spm=1001.2101.3001.4242.1&utm_relevant_index=3
 - 更新了队列的模板封装
+- 更新了安装realsenseD435的教程
+  >https://blog.csdn.net/qq_41721951/article/details/123507939
+- 安装相机驱动的问题解决:udev的权限问题，通过在udev中设置权限解决
+  >https://blog.csdn.net/chrisspf/article/details/122428884
+- 更新了realsense的调用代码，可以通过多线程进行调用

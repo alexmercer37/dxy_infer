@@ -451,6 +451,49 @@ CMakeFiles/pro.dir/src/queue.cpp.o: \
  /usr/include/k4arecord/playback.h \
  /home/ddxy/Downloads/dxy_infer-master/src/../inc/pthread.hpp \
  /home/ddxy/Downloads/dxy_infer-master/src/../inc/tcp.hpp \
+ /home/ddxy/Downloads/dxy_infer-master/src/../inc/realsense.hpp \
+ /usr/local/include/librealsense2/rs.hpp \
+ /usr/local/include/librealsense2/rs.h \
+ /usr/local/include/librealsense2/rsutil.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+ /usr/local/include/librealsense2/h/rs_types.h \
+ /usr/local/include/librealsense2/h/rs_sensor.h \
+ /usr/local/include/librealsense2/h/rs_types.h \
+ /usr/local/include/librealsense2/h/rs_context.h \
+ /usr/local/include/librealsense2/h/rs_device.h \
+ /usr/local/include/librealsense2/h/rs_sensor.h \
+ /usr/local/include/librealsense2/h/rs_frame.h \
+ /usr/local/include/librealsense2/h/rs_option.h \
+ /usr/local/include/librealsense2/h/rs_processing.h \
+ /usr/local/include/librealsense2/h/rs_option.h \
+ /usr/local/include/librealsense2/h/rs_record_playback.h \
+ /usr/local/include/librealsense2/hpp/rs_types.hpp \
+ /usr/local/include/librealsense2/rs.h \
+ /usr/local/include/librealsense2/h/rs_context.h \
+ /usr/local/include/librealsense2/h/rs_device.h \
+ /usr/local/include/librealsense2/h/rs_frame.h \
+ /usr/local/include/librealsense2/h/rs_processing.h \
+ /usr/local/include/librealsense2/h/rs_record_playback.h \
+ /usr/local/include/librealsense2/h/rs_sensor.h \
+ /usr/local/include/librealsense2/h/rs_pipeline.h \
+ /usr/local/include/librealsense2/h/rs_config.h \
+ /usr/include/c++/11/iterator /usr/include/c++/11/bits/stream_iterator.h \
+ /usr/local/include/librealsense2/hpp/rs_context.hpp \
+ /usr/local/include/librealsense2/hpp/rs_types.hpp \
+ /usr/local/include/librealsense2/hpp/rs_record_playback.hpp \
+ /usr/local/include/librealsense2/hpp/rs_device.hpp \
+ /usr/local/include/librealsense2/hpp/rs_sensor.hpp \
+ /usr/local/include/librealsense2/hpp/rs_frame.hpp \
+ /usr/local/include/librealsense2/hpp/rs_processing.hpp \
+ /usr/local/include/librealsense2/hpp/rs_options.hpp \
+ /usr/local/include/librealsense2/h/rs_types.h \
+ /usr/local/include/librealsense2/hpp/rs_device.hpp \
+ /usr/local/include/librealsense2/hpp/rs_frame.hpp \
+ /usr/local/include/librealsense2/hpp/rs_processing.hpp \
+ /usr/local/include/librealsense2/hpp/rs_record_playback.hpp \
+ /usr/local/include/librealsense2/hpp/rs_sensor.hpp \
+ /usr/local/include/librealsense2/hpp/rs_pipeline.hpp \
+ /usr/local/include/librealsense2/hpp/rs_context.hpp \
  /usr/include/semaphore.h /usr/include/x86_64-linux-gnu/bits/semaphore.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \

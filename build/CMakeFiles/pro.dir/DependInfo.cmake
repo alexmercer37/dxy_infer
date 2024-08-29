@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ddxy/Downloads/dxy_infer-master/src/main.cpp" "CMakeFiles/pro.dir/src/main.cpp.o" "gcc" "CMakeFiles/pro.dir/src/main.cpp.o.d"
   "/home/ddxy/Downloads/dxy_infer-master/src/pthread.cpp" "CMakeFiles/pro.dir/src/pthread.cpp.o" "gcc" "CMakeFiles/pro.dir/src/pthread.cpp.o.d"
   "/home/ddxy/Downloads/dxy_infer-master/src/queue.cpp" "CMakeFiles/pro.dir/src/queue.cpp.o" "gcc" "CMakeFiles/pro.dir/src/queue.cpp.o.d"
+  "/home/ddxy/Downloads/dxy_infer-master/src/realsense.cpp" "CMakeFiles/pro.dir/src/realsense.cpp.o" "gcc" "CMakeFiles/pro.dir/src/realsense.cpp.o.d"
   "/home/ddxy/Downloads/dxy_infer-master/src/tcp.cpp" "CMakeFiles/pro.dir/src/tcp.cpp.o" "gcc" "CMakeFiles/pro.dir/src/tcp.cpp.o.d"
   "/home/ddxy/Downloads/dxy_infer-master/src/uart.cpp" "CMakeFiles/pro.dir/src/uart.cpp.o" "gcc" "CMakeFiles/pro.dir/src/uart.cpp.o.d"
   )

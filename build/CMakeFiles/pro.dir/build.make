@@ -153,10 +153,24 @@ CMakeFiles/pro.dir/src/queue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pro.dir/src/queue.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ddxy/Downloads/dxy_infer-master/src/queue.cpp -o CMakeFiles/pro.dir/src/queue.cpp.s
 
+CMakeFiles/pro.dir/src/realsense.cpp.o: CMakeFiles/pro.dir/flags.make
+CMakeFiles/pro.dir/src/realsense.cpp.o: /home/ddxy/Downloads/dxy_infer-master/src/realsense.cpp
+CMakeFiles/pro.dir/src/realsense.cpp.o: CMakeFiles/pro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ddxy/Downloads/dxy_infer-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/pro.dir/src/realsense.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pro.dir/src/realsense.cpp.o -MF CMakeFiles/pro.dir/src/realsense.cpp.o.d -o CMakeFiles/pro.dir/src/realsense.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/realsense.cpp
+
+CMakeFiles/pro.dir/src/realsense.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pro.dir/src/realsense.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ddxy/Downloads/dxy_infer-master/src/realsense.cpp > CMakeFiles/pro.dir/src/realsense.cpp.i
+
+CMakeFiles/pro.dir/src/realsense.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pro.dir/src/realsense.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ddxy/Downloads/dxy_infer-master/src/realsense.cpp -o CMakeFiles/pro.dir/src/realsense.cpp.s
+
 CMakeFiles/pro.dir/src/tcp.cpp.o: CMakeFiles/pro.dir/flags.make
 CMakeFiles/pro.dir/src/tcp.cpp.o: /home/ddxy/Downloads/dxy_infer-master/src/tcp.cpp
 CMakeFiles/pro.dir/src/tcp.cpp.o: CMakeFiles/pro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ddxy/Downloads/dxy_infer-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/pro.dir/src/tcp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ddxy/Downloads/dxy_infer-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/pro.dir/src/tcp.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pro.dir/src/tcp.cpp.o -MF CMakeFiles/pro.dir/src/tcp.cpp.o.d -o CMakeFiles/pro.dir/src/tcp.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/tcp.cpp
 
 CMakeFiles/pro.dir/src/tcp.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/pro.dir/src/tcp.cpp.s: cmake_force
 CMakeFiles/pro.dir/src/uart.cpp.o: CMakeFiles/pro.dir/flags.make
 CMakeFiles/pro.dir/src/uart.cpp.o: /home/ddxy/Downloads/dxy_infer-master/src/uart.cpp
 CMakeFiles/pro.dir/src/uart.cpp.o: CMakeFiles/pro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ddxy/Downloads/dxy_infer-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/pro.dir/src/uart.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ddxy/Downloads/dxy_infer-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/pro.dir/src/uart.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pro.dir/src/uart.cpp.o -MF CMakeFiles/pro.dir/src/uart.cpp.o.d -o CMakeFiles/pro.dir/src/uart.cpp.o -c /home/ddxy/Downloads/dxy_infer-master/src/uart.cpp
 
 CMakeFiles/pro.dir/src/uart.cpp.i: cmake_force
@@ -189,6 +203,7 @@ pro_OBJECTS = \
 "CMakeFiles/pro.dir/src/main.cpp.o" \
 "CMakeFiles/pro.dir/src/pthread.cpp.o" \
 "CMakeFiles/pro.dir/src/queue.cpp.o" \
+"CMakeFiles/pro.dir/src/realsense.cpp.o" \
 "CMakeFiles/pro.dir/src/tcp.cpp.o" \
 "CMakeFiles/pro.dir/src/uart.cpp.o"
 
@@ -201,6 +216,7 @@ pro_EXTERNAL_OBJECTS =
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/src/main.cpp.o
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/src/pthread.cpp.o
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/src/queue.cpp.o
+/home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/src/realsense.cpp.o
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/src/tcp.cpp.o
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/src/uart.cpp.o
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/build.make
@@ -212,6 +228,7 @@ pro_EXTERNAL_OBJECTS =
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_stitching.so.4.9.0
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_video.so.4.9.0
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_videoio.so.4.9.0
+/home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/librealsense2.so.2.56.1
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/lib/x86_64-linux-gnu/libk4a.so.1.4.2
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_imgcodecs.so.4.9.0
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_dnn.so.4.9.0
@@ -220,8 +237,9 @@ pro_EXTERNAL_OBJECTS =
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_flann.so.4.9.0
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_imgproc.so.4.9.0
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/libopencv_core.so.4.9.0
+/home/ddxy/Downloads/dxy_infer-master/workspace/pro: /usr/local/lib/librsutils.a
 /home/ddxy/Downloads/dxy_infer-master/workspace/pro: CMakeFiles/pro.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ddxy/Downloads/dxy_infer-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable /home/ddxy/Downloads/dxy_infer-master/workspace/pro"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ddxy/Downloads/dxy_infer-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable /home/ddxy/Downloads/dxy_infer-master/workspace/pro"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pro.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

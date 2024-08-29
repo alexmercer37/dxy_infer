@@ -2000,6 +2000,18 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/ddxy/Downloads/dxy_infer-master"
+		},
+		{
+			"name" : "realsense2_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for realsense2."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/lib/cmake/realsense2"
 		}
 	],
 	"kind" : "cache",
