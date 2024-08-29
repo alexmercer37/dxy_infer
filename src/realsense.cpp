@@ -1,3 +1,13 @@
+/**
+ * @file realsense.cpp
+ * @author alexmercer37 (3416181310@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-29
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 #include "../inc/realsense.hpp"
 
 void RealSense::realsense_init(rs2::pipeline &pipe)
@@ -12,7 +22,6 @@ void RealSense::realsense_update(rs2::pipeline &pipe, rs2::frameset &frames)
 {
 
     frames = pipe.wait_for_frames();
-
     // auto aligned_frameset = align_to_color.process(frameset);
 }
 

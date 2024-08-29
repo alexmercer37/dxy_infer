@@ -23,11 +23,25 @@ int main()
 
   pthread_t threads[10] = {0};
 
-  // pthread_create(&threads[0], NULL, pthread::k4aUpdate, NULL);
+#ifdef use_realsense
+
   pthread_create(&threads[1], NULL, pthread::realsenseUpdate, NULL);
-  // pthread_create(&threads[1], NULL, pthread::create_infer, NULL);
-  // pthread_create(&threads[2], NULL, pthread::create_infer_seg, NULL);
-  // pthread_create(&threads[3], NULL, pthread::usb_camera_infer, NULL);
+
+#endif
+
+#ifdef use_k4a
+
+  pthread_create(&threads[0], NULL, pthread::k4aUpdate, NULL);
+
+#endif
+
+#ifdef use_detect
+
+  pthread_create(&threads[1], NULL, pthread::create_infer, NULL);
+  pthread_create(&threads[2], NULL, pthread::create_infer_seg, NULL);
+  pthread_create(&threads[3], NULL, pthread::usb_camera_infer, NULL);
+
+#endif
 
 #ifndef test_uart
 

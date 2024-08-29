@@ -1,3 +1,13 @@
+/**
+ * @file realsense.hpp
+ * @author alexmercer37 (3416181310@qq.com)
+ * @brief
+ * @version 0.1
+ * @date 2024-08-29
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 #ifndef REALSENSE_H
 #define REALSENSE_H
 #include <librealsense2/rs.hpp>
