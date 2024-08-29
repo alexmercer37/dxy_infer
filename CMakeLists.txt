@@ -12,12 +12,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_GLIBCXX_USE_CXX17_ABI=1")
 set(CUDA_GEN_CODE "-gencode=arch=compute_75,code=sm_75")
 
-set(OpenCV_INCLUDE_DIRS "/home/ddxy/Downloads/dxy_infer/inc/opencv")
+set(OpenCV_INCLUDE_DIRS "/usr/local/include/opencv2")
 set(OpenCV_LIBS_DIRS "/usr/local/lib")
 set(CUDA_DIR "/usr/local/cuda-12.2")
 set(CUDNN_DIR    "/usr/local/cuda-12.2")
 set(TENSORRT_DIR "/home/ddxy/project/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-12.0/TensorRT-8.6.1.6")
-set(NUMPY_INCLUDES "/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include")
+# set(NUMPY_INCLUDES "/home/ddxy/anaconda3/lib/python3.12/site-packages/numpy/core/include")
 set(cpp_srcs  
     src/uart.cpp  
     src/main.cpp
@@ -30,7 +30,7 @@ set(cpp_srcs
 find_package(CUDA REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(k4a REQUIRED)
-find_package(PythonLibs 3 REQUIRED)
+# find_package(PythonLibs 3 REQUIRED)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
@@ -38,8 +38,8 @@ include_directories(
     ${CUDA_DIR}/include
     ${TENSORRT_DIR}/include
     ${CUDNN_DIR}/include
-    ${PYTHON_INCLUDE_DIR}
-    ${NUMPY_INCLUDES}
+    # ${PYTHON_INCLUDE_DIR}
+    # ${NUMPY_INCLUDES}
     inc
     )
 
@@ -55,14 +55,14 @@ file(GLOB_RECURSE cpp_srcs ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
 add_executable(pro ${cpp_srcs})
 
-target_include_directories(pro PRIVATE ${Python3_INCLUDE_DIRS})
+# target_include_directories(pro PRIVATE ${Python3_INCLUDE_DIRS})
 
 target_link_libraries(pro  libcu.a)
 target_link_libraries(pro  nvinfer)
 target_link_libraries(pro  cuda cublas cudart cudnn)
 target_link_libraries(pro  pthread)
 target_link_libraries(pro  ${OpenCV_LIBS})
-target_link_libraries(pro  ${Python3_LIBRARIES})
+# target_link_libraries(pro  ${Python3_LIBRARIES})
 target_link_libraries(pro  k4a::k4a)
 # add_custom_target(
 #         yolo

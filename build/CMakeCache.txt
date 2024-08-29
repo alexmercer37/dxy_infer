@@ -23,8 +23,11 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++
+//Enable/Disable color output during build.
+CMAKE_COLOR_MAKEFILE:BOOL=ON
+
+//CXX compiler
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -49,8 +52,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc
+//C compiler
+CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -105,8 +108,8 @@ CMAKE_INSTALL_PREFIX:PATH=/usr/local
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/usr/bin/ld
 
-//Program used to build from build.ninja files.
-CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/ninja
+//Path to a program.
+CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -225,7 +228,7 @@ CUDA_BUILD_CUBIN:BOOL=OFF
 CUDA_BUILD_EMULATION:BOOL=OFF
 
 //"cudart" library
-CUDA_CUDART_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcudart.so
+CUDA_CUDART_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcudart.so
 
 //"cuda" library (older versions only).
 CUDA_CUDA_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcuda.so
@@ -238,10 +241,10 @@ CUDA_GENERATED_OUTPUT_DIR:PATH=
 CUDA_HOST_COMPILATION_CPP:BOOL=ON
 
 //Host side compiler used by NVCC
-CUDA_HOST_COMPILER:FILEPATH=/usr/bin/gcc
+CUDA_HOST_COMPILER:FILEPATH=/usr/bin/cc
 
 //Path to a program.
-CUDA_NVCC_EXECUTABLE:FILEPATH=/usr/bin/nvcc
+CUDA_NVCC_EXECUTABLE:FILEPATH=/usr/local/cuda-12.2/bin/nvcc
 
 //Semi-colon delimit multiple arguments. during all build types.
 CUDA_NVCC_FLAGS:STRING=
@@ -260,7 +263,7 @@ CUDA_NVCC_FLAGS_RELEASE:STRING=
 CUDA_NVCC_FLAGS_RELWITHDEBINFO:STRING=
 
 //"OpenCL" library
-CUDA_OpenCL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libOpenCL.so
+CUDA_OpenCL_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libOpenCL.so
 
 //Propagate C/CXX_FLAGS and friends to the host compiler via -Xcompile
 CUDA_PROPAGATE_HOST_FLAGS:BOOL=ON
@@ -273,10 +276,10 @@ CUDA_SDK_ROOT_DIR:PATH=CUDA_SDK_ROOT_DIR-NOTFOUND
 CUDA_SEPARABLE_COMPILATION:BOOL=OFF
 
 //Path to a file.
-CUDA_TOOLKIT_INCLUDE:PATH=/usr/include
+CUDA_TOOLKIT_INCLUDE:PATH=/usr/local/cuda-12.2/include
 
 //Toolkit location.
-CUDA_TOOLKIT_ROOT_DIR:PATH=/usr
+CUDA_TOOLKIT_ROOT_DIR:PATH=/usr/local/cuda-12.2
 
 //Use the static version of the CUDA runtime library if available
 CUDA_USE_STATIC_CUDA_RUNTIME:BOOL=OFF
@@ -288,79 +291,70 @@ CUDA_USE_STATIC_CUDA_RUNTIME:BOOL=OFF
 CUDA_VERBOSE_BUILD:BOOL=OFF
 
 //Version of CUDA as computed from nvcc.
-CUDA_VERSION:STRING=12.0
+CUDA_VERSION:STRING=12.2
 
 //"cublas" library
-CUDA_cublas_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcublas.so
+CUDA_cublas_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcublas.so
 
 //"cudadevrt" library
-CUDA_cudadevrt_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcudadevrt.a
+CUDA_cudadevrt_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcudadevrt.a
 
 //static CUDA runtime library
-CUDA_cudart_static_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcudart_static.a
+CUDA_cudart_static_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcudart_static.a
 
 //"cufft" library
-CUDA_cufft_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcufft.so
+CUDA_cufft_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcufft.so
 
 //"cupti" library
-CUDA_cupti_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcupti.so
+CUDA_cupti_LIBRARY:FILEPATH=/usr/local/cuda-12.2/extras/CUPTI/lib64/libcupti.so
 
 //"curand" library
-CUDA_curand_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcurand.so
+CUDA_curand_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcurand.so
 
 //"cusolver" library
-CUDA_cusolver_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcusolver.so
+CUDA_cusolver_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcusolver.so
 
 //"cusparse" library
-CUDA_cusparse_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcusparse.so
+CUDA_cusparse_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libcusparse.so
 
 //"nppc" library
-CUDA_nppc_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppc.so
+CUDA_nppc_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppc.so
 
 //"nppial" library
-CUDA_nppial_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppial.so
+CUDA_nppial_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppial.so
 
 //"nppicc" library
-CUDA_nppicc_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppicc.so
+CUDA_nppicc_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppicc.so
 
 //"nppidei" library
-CUDA_nppidei_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppidei.so
+CUDA_nppidei_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppidei.so
 
 //"nppif" library
-CUDA_nppif_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppif.so
+CUDA_nppif_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppif.so
 
 //"nppig" library
-CUDA_nppig_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppig.so
+CUDA_nppig_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppig.so
 
 //"nppim" library
-CUDA_nppim_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppim.so
+CUDA_nppim_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppim.so
 
 //"nppist" library
-CUDA_nppist_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppist.so
+CUDA_nppist_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppist.so
 
 //"nppisu" library
-CUDA_nppisu_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppisu.so
+CUDA_nppisu_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppisu.so
 
 //"nppitc" library
-CUDA_nppitc_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnppitc.so
+CUDA_nppitc_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnppitc.so
 
 //"npps" library
-CUDA_npps_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnpps.so
+CUDA_npps_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnpps.so
 
 //"nvToolsExt" library
-CUDA_nvToolsExt_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libnvToolsExt.so
+CUDA_nvToolsExt_LIBRARY:FILEPATH=/usr/local/cuda-12.2/lib64/libnvToolsExt.so
 
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
-
-//Path to a file.
-PYTHON_INCLUDE_DIR:PATH=/usr/include/python3.12
-
-//Path to a library.
-PYTHON_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpython3.12.so
-
-//Path to a library.
-PYTHON_LIBRARY_DEBUG:FILEPATH=PYTHON_LIBRARY_DEBUG-NOTFOUND
 
 //The directory containing a CMake configuration file for k4a.
 k4a_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/k4a
@@ -391,6 +385,8 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=28
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
+//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
+CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
@@ -431,8 +427,6 @@ CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
-//Path to cache edit program executable.
-CMAKE_EDIT_COMMAND:INTERNAL=/usr/bin/cmake-gui
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
@@ -448,7 +442,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=Ninja
+CMAKE_GENERATOR:INTERNAL=Unix Makefiles
 //Generator instance identifier.
 CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
@@ -563,10 +557,10 @@ CUDA_SEPARABLE_COMPILATION-ADVANCED:INTERNAL=1
 CUDA_TOOLKIT_INCLUDE-ADVANCED:INTERNAL=1
 //This is the value of the last time CUDA_TOOLKIT_ROOT_DIR was
 // set successfully.
-CUDA_TOOLKIT_ROOT_DIR_INTERNAL:INTERNAL=/usr
+CUDA_TOOLKIT_ROOT_DIR_INTERNAL:INTERNAL=/usr/local/cuda-12.2
 //This is the value of the last time CUDA_TOOLKIT_TARGET_DIR was
 // set successfully.
-CUDA_TOOLKIT_TARGET_DIR_INTERNAL:INTERNAL=/usr
+CUDA_TOOLKIT_TARGET_DIR_INTERNAL:INTERNAL=/usr/local/cuda-12.2
 //ADVANCED property for variable: CUDA_VERBOSE_BUILD
 CUDA_VERBOSE_BUILD-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CUDA_VERSION
@@ -618,17 +612,9 @@ CUDA_parse_cubin:INTERNAL=/usr/share/cmake-3.28/Modules/FindCUDA/parse_cubin.cma
 //Location of run_nvcc.cmake
 CUDA_run_nvcc:INTERNAL=/usr/share/cmake-3.28/Modules/FindCUDA/run_nvcc.cmake
 //Details about finding CUDA
-FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr][/usr/bin/nvcc][/usr/include][/usr/lib/x86_64-linux-gnu/libcudart.so][v12.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr/local/cuda-12.2][/usr/local/cuda-12.2/bin/nvcc][/usr/local/cuda-12.2/include][/usr/local/cuda-12.2/lib64/libcudart.so][v12.2()]
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][v4.9.0()]
-//Details about finding PythonLibs
-FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpython3.12.so][/usr/include/python3.12][v3.12.3(3)]
-//ADVANCED property for variable: PYTHON_INCLUDE_DIR
-PYTHON_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: PYTHON_LIBRARY
-PYTHON_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: PYTHON_LIBRARY_DEBUG
-PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 

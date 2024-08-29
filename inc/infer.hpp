@@ -92,8 +92,7 @@ namespace trt
   class Infer
   {
   public:
-    virtual bool forward(const std::vector<void *> &bindings, void *stream = nullptr,
-                         void *input_consum_event = nullptr) = 0;
+    virtual bool forward(const std::vector<void *> &bindings, void *stream = nullptr, void *input_consum_event = nullptr) = 0;
     virtual int index(const std::string &name) = 0;
     virtual std::vector<int> run_dims(const std::string &name) = 0;
     virtual std::vector<int> run_dims(int ibinding) = 0;
@@ -114,6 +113,6 @@ namespace trt
   std::shared_ptr<Infer> load(const std::string &file);
   std::string format_shape(const std::vector<int> &shape);
 
-} // namespace trt
+}
 
-#endif // __INFER_HPP__
+#endif

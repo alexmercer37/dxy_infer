@@ -138,3 +138,9 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 - 一键安装和卸载ros
   >https://www.cnblogs.com/tdyizhen1314/p/16854333.html
 - 在其他电脑上配置了该文件，发现有几个问题，在编译.cu文件时会涉及到main.hpp中的文件，可能会报错，在此作了用宏定义去注释部分代码来解决，并更新了使用说明
+### `8.29`
+#### 重装系统中的问题更新
+- opencv安装时报错`error: (-2) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Carbon support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function cvNamedWindow`，忘记安装依赖的环境libgtk2.0-dev，记得安装后对opencv重新编译
+> https://blog.csdn.net/u011622208/article/details/109117436
+- 换源教程,24.04换20.04
+> https://blog.csdn.net/orcer1994/article/details/107497822?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-107497822-blog-106069030.235^v43^pc_blog_bottom_relevance_base2&spm=1001.2101.3001.4242.1&utm_relevant_index=3

@@ -24,12 +24,12 @@
 #include "camera.hpp"
 #include "pthread.hpp"
 #include "tcp.hpp"
-#endif
-
-#include <pthread.h>
 #include <k4a/k4a.hpp>
 #include <k4arecord/record.h>
 #include <k4arecord/playback.h>
+#endif
+
+#include <pthread.h>
 #include <unistd.h>
 #include <cstdlib>
 #include <semaphore.h>

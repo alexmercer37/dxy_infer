@@ -11,7 +11,7 @@
 
 #include "../inc/main.hpp"
 #include "../inc/pthread.hpp"
-#include <python3.12/Python.h>
+// #include <python3.12/Python.h>
 // #include <numpy/arrayobject.h>
 
 Camera *camera = new Camera;
@@ -145,14 +145,14 @@ void *pthread::create_infer_seg(void *argc)
 
 void *pthread::usb_camera_infer(void *argc)
 {
-    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/best.engine", yolo::Type::V8);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/test.engine", yolo::Type::V8);
     if (yolo == nullptr)
     {
         throw std::runtime_error("Loading usb_yolo failed");
         return nullptr;
     }
 
-    cv::VideoCapture capture(2);
+    cv::VideoCapture capture(0);
     detect->setYolo(yolo);
 
     std::shared_ptr<cv::Mat> output;

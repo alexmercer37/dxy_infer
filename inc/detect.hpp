@@ -32,7 +32,7 @@ public:
 
     void setYolo(std::shared_ptr<yolo::Infer> new_yolo)
     {
-        yolo = new_yolo;
+        new_yolo = yolo;
     };
 };
 #endif
