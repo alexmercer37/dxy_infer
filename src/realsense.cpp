@@ -10,7 +10,7 @@
  */
 #include "../inc/realsense.hpp"
 
-void RealSense::realsense_init(rs2::pipeline &pipe)
+void RealSense::realsense_init(rs2::pipeline pipe)
 {
     rs2::config cfg;
 
@@ -50,7 +50,7 @@ void RealSense::realsense_update(rs2::pipeline pipe, rs2::frameset &frames, rs2:
     frames = align_to_color.process(frames);
 }
 
-cv::Mat *RealSense::get_realsense_depth(rs2::frameset &frames)
+cv::Mat *RealSense::get_realsense_depth(rs2::frameset frames)
 {
     rs2::depth_frame depth_stream = frames.get_depth_frame();
 
@@ -62,7 +62,7 @@ cv::Mat *RealSense::get_realsense_depth(rs2::frameset &frames)
     return depth_image;
 }
 
-cv::Mat *RealSense::get_realsense_rgb(rs2::frameset &frames)
+cv::Mat *RealSense::get_realsense_rgb(rs2::frameset frames)
 {
     rs2::video_frame color_stream = frames.get_color_frame();
 
