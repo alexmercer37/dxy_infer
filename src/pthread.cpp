@@ -33,13 +33,13 @@ rs2::align align_to_color(RS2_STREAM_COLOR);
 void *pthread::k4aUpdate(void *argc)
 {
     camera->init_kinect(Device, capture, k4aTransformation, k4aCalibration);
-    // int frame_count = 0;
+    int frame_count = 0;
 
     while (1)
     {
-        // std::ostringstream filename;
+        std::ostringstream filename;
 
-        // filename << "/home/nf/Downloads/getpicture/1/frame_" << std::setw(5) << std::setfill('0') << frame_count++ << ".jpg";
+        filename << "/home/ddxy/Downloads/basketball5/train" << std::setw(5) << std::setfill('0') << frame_count++ << ".jpg ";
 
         camera->picture_update(Device, capture);
 
@@ -48,7 +48,7 @@ void *pthread::k4aUpdate(void *argc)
         rgb_ptr = camera->getpicture(Device, capture, rgb_frame, k4aTransformation);
         depth_ptr = camera->getdepth(Device, capture, depth_frame, k4aTransformation);
 
-        // cv::imwrite(filename.str(), *rgb_ptr);
+        cv::imwrite(filename.str(), *rgb_ptr);
 
         // camera->getAngel(Device);
 
@@ -105,6 +105,8 @@ void *pthread::realsenseUpdate(void *argc)
         matBuff = std::make_shared<cv::Mat>(rgb_ptr->clone());
         depthBuff = std::make_shared<cv::Mat>(depth_ptr->clone());
 
+        cv::cvtColor(*matBuff, *matBuff, cv::COLOR_RGB2BGR);
+
         pthread_mutex_unlock(&buff_mutex);
 
         if (matBuff->empty())
@@ -119,6 +121,9 @@ void *pthread::realsenseUpdate(void *argc)
 
         rgb_ptr->release();
         depth_ptr->release();
+
+        cv::imshow("dzx", *matBuff);
+        cv::waitKey(1);
 
         usleep(100);
     }

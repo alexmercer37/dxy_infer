@@ -121,7 +121,8 @@ std::shared_ptr<cv::Mat> Detect::single_inference(std::shared_ptr<cv::Mat> image
             colors.push_back(cv::Scalar(b, g, r));
         }
         cv::Scalar color = colors[obj.class_label];
-        cv::rectangle(*image, cv::Point(obj.left, obj.top), cv::Point(obj.right, obj.bottom), color, 5);
+        // cv::rectangle(*image, cv::Point(obj.left, obj.top), cv::Point(obj.right, obj.bottom), color, 5);
+        std::cout << "success!" << std::endl;
 #endif
 
         // auto name = cocolabels[obj.class_label];
