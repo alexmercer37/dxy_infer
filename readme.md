@@ -153,7 +153,7 @@ ubuntu可以利用locate进行目标文件定位，但在使用过程中出现�
 ### `9.2`
 #### 更新realsense的调用
 - 更新了realsense的深度图和彩色图的调用，并进行图像配准和对齐
-- ### `9.5`
+### `9.5`
 #### 更新yolov8环境的配置问题
 - Python:PackageNotFoundError No package metadata was found for <myproject>
   >https://stackoverflow.com/questions/77368894/python-packagenotfounderror-no-package-metadata-was-found-for-myproject
