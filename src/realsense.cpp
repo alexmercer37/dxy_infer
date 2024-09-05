@@ -43,7 +43,7 @@ void RealSense::realsense_init(rs2::pipeline &pipe)
     }
 }
 
-void RealSense::realsense_update(rs2::pipeline &pipe, rs2::frameset &frames, rs2::align &align_to_color)
+void RealSense::realsense_update(rs2::pipeline pipe, rs2::frameset &frames, rs2::align align_to_color)
 {
 
     frames = pipe.wait_for_frames();

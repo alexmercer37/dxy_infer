@@ -48,7 +48,7 @@ void *pthread::k4aUpdate(void *argc)
         rgb_ptr = camera->getpicture(Device, capture, rgb_frame, k4aTransformation);
         depth_ptr = camera->getdepth(Device, capture, depth_frame, k4aTransformation);
 
-        cv::imwrite(filename.str(), *rgb_ptr);
+        // cv::imwrite(filename.str(), *rgb_ptr);
 
         // camera->getAngel(Device);
 
