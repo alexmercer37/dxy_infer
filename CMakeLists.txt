@@ -27,6 +27,7 @@ set(cpp_srcs
     src/tcp.cpp
     src/can_send.cpp
     src/realsense.cpp
+    src/filter.cpp
 )  
 
 find_package(CUDA REQUIRED)

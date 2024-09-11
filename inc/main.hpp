@@ -21,6 +21,7 @@
 #include "OpencvHead.hpp"
 #include "detect.hpp"
 #include "uart.hpp"
+#include "filter.hpp"
 #include "camera.hpp"
 #include "pthread.hpp"
 #include "tcp.hpp"
@@ -52,8 +53,8 @@
 
 #define test_tcp
 #define test_uart
-#define use_realsense
-// #define use_k4a
+// #define use_realsense
+#define use_k4a
 #define use_detect
 
 #endif

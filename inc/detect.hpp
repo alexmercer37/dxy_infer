@@ -27,7 +27,7 @@ public:
     void Time();
     void perf();
     void batch_inference();
-    std::shared_ptr<cv::Mat> single_inference(std::shared_ptr<cv::Mat> image, std::shared_ptr<yolo::Infer> yolo);
+    std::shared_ptr<cv::Mat> single_inference(std::shared_ptr<cv::Mat> image, std::shared_ptr<yolo::Infer> yolo, cv::KalmanFilter &kf);
     cv::Mat *seg_inference(std::shared_ptr<cv::Mat> image, std::shared_ptr<yolo::Infer> yolo);
 
     void setYolo(std::shared_ptr<yolo::Infer> new_yolo)

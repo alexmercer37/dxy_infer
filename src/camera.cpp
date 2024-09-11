@@ -38,7 +38,7 @@ void Camera::init_kinect(k4a::device &device, k4a::capture &capture, k4a::transf
   cout << "Done:open device." << endl;
   init = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
   init.color_format = K4A_IMAGE_FORMAT_COLOR_BGRA32;
-  init.color_resolution = K4A_COLOR_RESOLUTION_1080P;
+  init.color_resolution = K4A_COLOR_RESOLUTION_720P;
   init.depth_mode = K4A_DEPTH_MODE_WFOV_2X2BINNED;
   init.camera_fps = K4A_FRAMES_PER_SECOND_30;
   init.synchronized_images_only = true;

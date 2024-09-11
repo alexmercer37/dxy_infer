@@ -16,6 +16,7 @@
 RealSense *realsense = new RealSense;
 Camera *camera = new Camera;
 Detect *detect = new Detect;
+extern Filter *filter;
 
 cv::Mat rgb_frame, depth_frame;
 cv::Mat *rgb_ptr = new cv::Mat;
@@ -105,9 +106,11 @@ void *pthread::realsenseUpdate(void *argc)
         matBuff = std::make_shared<cv::Mat>(rgb_ptr->clone());
         depthBuff = std::make_shared<cv::Mat>(depth_ptr->clone());
 
-        cv::cvtColor(*matBuff, *matBuff, cv::COLOR_RGB2BGR);
+        // cv::cvtColor(*matBuff, *matBuff, cv::COLOR_RGB2BGR);
 
         pthread_mutex_unlock(&buff_mutex);
+
+        // realsense->detect_realsense();
 
         if (matBuff->empty())
         {
@@ -132,7 +135,7 @@ void *pthread::realsenseUpdate(void *argc)
 
 void *pthread::create_infer(void *argc)
 {
-    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/test.engine", yolo::Type::V8);
+    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/basketball.engine", yolo::Type::V8);
     if (yolo == nullptr)
     {
         throw std::runtime_error("Loading yolo failed");
@@ -142,12 +145,15 @@ void *pthread::create_infer(void *argc)
     std::shared_ptr<cv::Mat> output;
     detect->setYolo(yolo);
 
+    cv::KalmanFilter kf(4, 2, 0);
+    filter->init_filter(kf);
+
     while (1)
     {
         while (!matBuff->empty())
         {
             pthread_mutex_lock(&buff_mutex);
-            output = detect->single_inference(matBuff, yolo);
+            output = detect->single_inference(matBuff, yolo, kf);
             pthread_mutex_unlock(&buff_mutex);
             usleep(100);
 
@@ -193,42 +199,42 @@ void *pthread::create_infer_seg(void *argc)
     pthread_exit(NULL);
 }
 
-void *pthread::usb_camera_infer(void *argc)
-{
-    auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/test.engine", yolo::Type::V8);
-    if (yolo == nullptr)
-    {
-        throw std::runtime_error("Loading usb_yolo failed");
-        return nullptr;
-    }
+// void *pthread::usb_camera_infer(void *argc)
+// {
+//     auto yolo = yolo::load("/home/ddxy/Downloads/dxy_infer-master/workspace/engine/test.engine", yolo::Type::V8);
+//     if (yolo == nullptr)
+//     {
+//         throw std::runtime_error("Loading usb_yolo failed");
+//         return nullptr;
+//     }
 
-    cv::VideoCapture capture(0);
-    detect->setYolo(yolo);
+//     cv::VideoCapture capture(0);
+//     detect->setYolo(yolo);
 
-    std::shared_ptr<cv::Mat> output;
-    std::shared_ptr<cv::Mat> frame;
-    frame.reset(new cv::Mat);
+//     std::shared_ptr<cv::Mat> output;
+//     std::shared_ptr<cv::Mat> frame;
+//     frame.reset(new cv::Mat);
 
-    while (1)
-    {
+//     while (1)
+//     {
 
-        capture.read(*frame);
+//         capture.read(*frame);
 
-        pthread_mutex_lock(&buff_mutex);
-        output = detect->single_inference(frame, yolo);
-        pthread_mutex_unlock(&buff_mutex);
-        usleep(100);
+//         pthread_mutex_lock(&buff_mutex);
+//         output = detect->single_inference(frame, yolo);
+//         pthread_mutex_unlock(&buff_mutex);
+//         usleep(100);
 
-        if (output != nullptr)
-        {
-            cv::imshow("USB_CAMERA", *output);
-            cv::waitKey(1);
-        }
-        else
-            std::cout << "Error: usb_camera_output is empty!" << std::endl;
-    }
-    pthread_exit(NULL);
-}
+//         if (output != nullptr)
+//         {
+//             cv::imshow("USB_CAMERA", *output);
+//             cv::waitKey(1);
+//         }
+//         else
+//             std::cout << "Error: usb_camera_output is empty!" << std::endl;
+//     }
+//     pthread_exit(NULL);
+// }
 
 #ifndef python_test_succeed
 
